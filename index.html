@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>SKILLDD Premium</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+
+<div id="app" class="app-container">
+  
+  <div class="status-bar text-white">
+    <span class="time">9:41</span>
+    <div class="dynamic-island"></div>
+    <div class="status-icons flex-row">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"></path></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"></path></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="18" height="12" rx="2" ry="2"></rect><line x1="23" y1="13" x2="23" y2="11"></line></svg>
+    </div>
+  </div>
+
+  <div class="white-card">
+    <main id="main-content">
+      
+      <!-- SCREEN: FEED -->
+      <section id="screen-feed" class="screen active">
+        <div class="header-aww text-black" style="padding-bottom:12px;">
+          <div class="location-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Indiranagar, BLR
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <h1 class="font-inktrap hero-title m-t-8" style="font-size:34px;">DISCOVER<br>THE GUILD.</h1>
+        </div>
+        
+        <div class="search-sticky-wrapper">
+          <div class="search-neo m-x-20">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" placeholder="Find 450+ skills, tools & neighbors..." />
+          </div>
+        </div>
+
+        <div class="stats-aww m-x-20 m-t-24">
+          <div class="stat-neo">
+            <span class="font-inktrap">124</span>
+            <span class="stat-lbl">Live in Indiranagar</span>
+          </div>
+          <div class="stat-neo outline">
+            <span class="font-inktrap">15</span>
+            <span class="stat-lbl">Scrap Bins Active</span>
+          </div>
+        </div>
+
+        <div class="m-x-20 m-t-16 m-b-24">
+          <button class="btn-checkin-real" onclick="window.navigateToScreen('screen-live')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            Check-In to Class
+          </button>
+        </div>
+
+        <div class="category-scroll m-b-32 pl-20 pr-20">
+          <span class="pill-aww yellow">Furniture Upcycle</span>
+          <span class="pill-aww blue">Micro-Electronics</span>
+          <span class="pill-aww grey">Leather Craft</span>
+          <span class="pill-aww outline">Legacy Tools</span>
+          <span class="pill-aww grey">Pottery Basics</span>
+        </div>
+
+        <div class="cards-stack m-x-20" style="padding-bottom: 24px;">
+          <!-- Card 1 -->
+          <div class="card-aww" onclick="window.navigateToScreen('screen-expert')">
+            <div class="card-image-box">
+              <img src="https://picsum.photos/600/400?random=1" alt="Joinery">
+              <div class="badge-aww pink">ONLY 2 SLOTS</div>
+            </div>
+            <div class="card-body-aww">
+              <h2 class="font-inktrap title-aww">Adv. Dovetail Joinery</h2>
+              <div class="flex-between m-b-16">
+                <span class="text-secondary text-sm">Master Saxena <span class="verified">✔ Silver</span></span>
+                <span class="text-xs font-bold" style="color:#000;">★ 4.9 (328)</span>
+              </div>
+              <div class="divider-aww"></div>
+              <div class="flex-between m-t-16 align-bottom">
+                <div class="price-aww">₹1,500 <span class="sub-lbl">Inc. Scrap Bundle</span></div>
+                <button class="btn-black-small">Book</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Card 2 -->
+          <div class="card-aww m-t-20">
+            <div class="card-image-box">
+              <img src="https://picsum.photos/600/400?random=2" alt="Drill">
+              <div class="badge-aww blue">TOMORROW</div>
+            </div>
+            <div class="card-body-aww">
+              <h2 class="font-inktrap title-aww">Power Tools Basics</h2>
+              <div class="flex-between m-b-16">
+                <span class="text-secondary text-sm">Gagan's Hardware</span>
+                <span class="text-xs font-bold" style="color:#000;">★ 4.7 (112)</span>
+              </div>
+              <div class="divider-aww"></div>
+              <div class="flex-between m-t-16 align-bottom">
+                <div class="price-aww">₹800 <span class="sub-lbl">Safety Gear Inc.</span></div>
+                <button class="btn-black-small outline">Join</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Card 3 -->
+          <div class="card-aww m-t-20">
+            <div class="card-image-box">
+              <img src="https://picsum.photos/600/400?random=3" alt="Pottery">
+            </div>
+            <div class="card-body-aww">
+              <h2 class="font-inktrap title-aww">Ceramics & Wheel Throwing</h2>
+              <div class="flex-between m-b-16">
+                <span class="text-secondary text-sm">Priya's Studio</span>
+                <span class="text-xs font-bold" style="color:#000;">★ 4.8 (85)</span>
+              </div>
+              <div class="divider-aww"></div>
+              <div class="flex-between m-t-16 align-bottom">
+                <div class="price-aww">₹2,000 <span class="sub-lbl">Clay Included</span></div>
+                <button class="btn-black-small outline">Join</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card-aww m-t-20">
+            <div class="card-image-box">
+              <img src="https://picsum.photos/600/400?random=4" alt="Sewing">
+            </div>
+            <div class="card-body-aww">
+              <h2 class="font-inktrap title-aww">Garment Alteration 101</h2>
+              <div class="flex-between m-b-16">
+                <span class="text-secondary text-sm">Neha's Boutique</span>
+                <span class="text-xs font-bold" style="color:#000;">★ 4.9 (42)</span>
+              </div>
+              <div class="divider-aww"></div>
+              <div class="flex-between m-t-16 align-bottom">
+                <div class="price-aww">₹1,200 <span class="sub-lbl">Bring own piece</span></div>
+                <button class="btn-black-small outline">Join</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="card-aww m-t-20">
+            <div class="card-image-box">
+              <img src="https://picsum.photos/600/400?random=5" alt="Motorcycle">
+              <div class="badge-aww yellow" style="color:#000;">HOT!</div>
+            </div>
+            <div class="card-body-aww">
+              <h2 class="font-inktrap title-aww">Vintage Engine Teardown</h2>
+              <div class="flex-between m-b-16">
+                <span class="text-secondary text-sm">Rahul's Garage</span>
+                <span class="text-xs font-bold" style="color:#000;">★ 5.0 (20)</span>
+              </div>
+              <div class="divider-aww"></div>
+              <div class="flex-between m-t-16 align-bottom">
+                <div class="price-aww">₹3,000 <span class="sub-lbl">For enthusiasts</span></div>
+                <button class="btn-black-small outline">Join</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-spacer"></div>
+      </section>
+
+      <!-- SCREEN: EXPERT PROFILE -->
+      <section id="screen-expert" class="screen" style="padding-top: 32px;">
+        <div class="nav-top m-x-20 flex-between">
+          <button class="icon-sq" onclick="window.navigateToScreen('screen-feed')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></button>
+          <span class="font-inktrap text-xs font-bold tracking-widest text-secondary">MENTOR / 01</span>
+        </div>
+
+        <div class="expert-hero text-center m-t-20 m-x-20">
+          <div class="avatar-holder">
+            <img src="https://picsum.photos/200/200?random=10" class="avatar-huge" alt="Saxena">
+            <div class="verified-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+          </div>
+          <h1 class="font-inktrap hero-title-sm m-t-16">MASTER<br>SAXENA</h1>
+          <p class="text-secondary text-sm m-t-8">Verified SKILLDD Guild Master</p>
+        </div>
+
+        <div class="stats-grid m-x-20 m-t-24">
+          <div class="stat-blk">
+            <span class="font-inktrap text-lg">500+</span>
+            <span class="lbl-sm">HOURS</span>
+          </div>
+          <div class="stat-blk">
+            <span class="font-inktrap text-lg">158</span>
+            <span class="lbl-sm">VOUCHED</span>
+          </div>
+          <div class="stat-blk">
+            <span class="font-inktrap text-lg">30y</span>
+            <span class="lbl-sm">EXP</span>
+          </div>
+        </div>
+
+        <div class="quote-card m-x-20 m-t-24 yellow-bg">
+          <p class="text-sm font-medium" style="line-height: 1.6;">“Retired Head of Carpentry at ITI. Specializes in sustainable teak construction and hand-joinery.”</p>
+        </div>
+
+        <div class="m-x-20 m-t-32">
+          <h3 class="font-inktrap text-md m-b-16">STUDENT PROJECTS</h3>
+          <div class="gallery-scroll">
+            <div class="gal-item">
+              <img src="https://picsum.photos/300/300?random=11" alt="Stool">
+              <span class="gal-lbl" style="position:absolute; bottom:8px; left:8px; background:#FFF; font-size:11px; font-weight:700; padding:4px 8px; border-radius:10px;">Ankit's Stool</span>
+            </div>
+            <div class="gal-item">
+              <img src="https://picsum.photos/300/300?random=12" alt="Shelf">
+              <span class="gal-lbl" style="position:absolute; bottom:8px; left:8px; background:#FFF; font-size:11px; font-weight:700; padding:4px 8px; border-radius:10px;">Rahul's Shelf</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-footer m-x-20 m-t-32">
+          <div class="flex-row m-b-16">
+            <span class="dot-blue"></span>
+            <span class="text-sm text-secondary font-medium">Responds in ~5m. Slots open.</span>
+          </div>
+          <button class="btn-black-huge">Book Workshop</button>
+        </div>
+        <div class="bottom-spacer"></div>
+      </section>
+
+      <!-- SCREEN: PASSPORT -->
+      <section id="screen-passport" class="screen">
+        <div class="header-aww text-black">
+          <h1 class="font-inktrap hero-title">YOUR<br>PASSPORT.</h1>
+        </div>
+        
+        <div class="passport-hero text-center m-x-20 m-t-12">
+          <div class="avatar-ring-aww">
+            <div class="ring-track"></div>
+            <div class="ring-progress"></div>
+            <img src="https://picsum.photos/150/150?random=20" alt="User">
+          </div>
+          <h2 class="font-inktrap title-aww m-t-16">RIYA SHARMA</h2>
+          <div class="rank-badge m-t-8 yellow-bg text-black font-inktrap font-bold text-sm">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#000"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            MASTER APPRENTICE
+          </div>
+          <p class="text-sm text-secondary m-t-8">Top 5% in Indiranagar</p>
+        </div>
+
+        <div class="hours-card m-x-20 m-t-24">
+          <span class="font-inktrap text-lg" style="font-size: 32px;">48.0</span>
+          <span class="lbl-sm" style="flex:1;">HOURS CLOCKED</span>
+        </div>
+
+        <div class="m-x-20 m-t-32">
+          <h3 class="font-inktrap text-md m-b-16 text-secondary">VERIFIED SKILLS</h3>
+          <div class="skill-blk">
+            <div class="flex-between m-b-8">
+              <span class="font-bold text-sm">Hand Tools</span>
+              <span class="pill-sm blue-bg text-blue">Expert</span>
+            </div>
+            <span class="text-xs text-secondary">Vouched by 5 Mentors</span>
+            <div class="prog-bar-wrap m-t-8"><div class="prog-fill" style="width:100%"></div></div>
+          </div>
+          <div class="skill-blk m-t-16">
+            <div class="flex-between m-b-8">
+              <span class="font-bold text-sm">Power Tools</span>
+              <span class="pill-sm yellow-bg text-yellow">Intermediate</span>
+            </div>
+            <span class="text-xs text-secondary">4/5 Safety Sessions</span>
+            <div class="prog-bar-wrap m-t-8"><div class="prog-fill" style="width:80%"></div></div>
+          </div>
+        </div>
+
+        <div class="m-x-20 m-t-32 m-b-24">
+          <h3 class="font-inktrap text-md m-b-16 text-secondary">HONOR BADGES</h3>
+          <div class="sleek-badges">
+            <div class="badge-row-sleek">
+              <div class="badge-icon-sq"><svg width="20" height="20" fill="none" stroke="#00AAFF" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+              <div style="flex:1;">
+                <span class="text-sm font-bold m-b-4" style="display:block;">Safety Pro</span>
+                <span class="text-xs text-secondary">Verified by 2 mentors</span>
+              </div>
+            </div>
+            <div class="badge-row-sleek">
+              <div class="badge-icon-sq"><svg width="20" height="20" fill="none" stroke="#FF4DA6" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+              <div style="flex:1;">
+                <span class="text-sm font-bold m-b-4" style="display:block;">Craft Hero</span>
+                <span class="text-xs text-secondary">Upcycled >50kg</span>
+              </div>
+            </div>
+            <div class="badge-row-sleek">
+              <div class="badge-icon-sq"><svg width="20" height="20" fill="none" stroke="#4A5500" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+              <div style="flex:1;">
+                <span class="text-sm font-bold m-b-4" style="display:block;">Legacy Bridge</span>
+                <span class="text-xs text-secondary">Top community contributor</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-spacer"></div>
+      </section>
+
+      <!-- SCREEN: MARKET -->
+      <section id="screen-market" class="screen">
+        <div class="header-aww text-black">
+          <h1 class="font-inktrap hero-title">LOCAL<br>MARKET.</h1>
+          <p class="text-sm text-secondary m-t-8">Crafted locally. Sold by neighbors.</p>
+        </div>
+
+        <div class="m-x-20 m-t-16">
+          <h3 class="font-inktrap text-md m-b-16 text-secondary">TRENDING NOW</h3>
+          
+          <div class="card-aww">
+            <div class="card-image-box" style="height: 240px;">
+               <img src="https://picsum.photos/500/300?random=31" alt="Coffee Table" />
+            </div>
+            <div class="card-body-aww">
+              <div class="flex-between m-b-8">
+                <h2 class="font-inktrap title-aww text-lg">Recycled Table</h2>
+                <span class="font-inktrap font-bold text-lg text-blue">₹4,500</span>
+              </div>
+              <p class="text-xs font-bold" style="color: #00AAFF; margin-top:2px;">By Ankit K.</p>
+              
+              <div class="story-box-glass m-t-16">
+                <p class="text-sm font-medium">"Made at Gagan’s Workshop using scrap wood from the community bin."</p>
+              </div>
+
+              <div class="social-proof-soft m-t-16">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B26A00" stroke-width="2" style="flex-shrink:0"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <span class="text-xs text-secondary" style="line-height:1.4;"><strong>12 people</strong> have this in watchlist. One of a kind.</span>
+              </div>
+              
+              <div class="pickup-alert m-t-16">
+                 <span class="dot-blue"></span> 
+                 <div class="text-xs font-medium text-secondary">Ready for pick-up at <br><strong style="color:#000;">Gagan’s (Shelf A)</strong></div>
+              </div>
+
+              <button class="btn-black-huge m-t-16">Reserve Item</button>
+            </div>
+          </div>
+
+          <!-- Market Item 2 -->
+          <div class="card-aww m-t-24">
+            <div class="card-image-box" style="height: 240px;">
+               <img src="https://picsum.photos/500/300?random=32" alt="Plant Pot" />
+            </div>
+            <div class="card-body-aww">
+              <div class="flex-between m-b-8">
+                <h2 class="font-inktrap title-aww text-lg">Ceramic Pot</h2>
+                <span class="font-inktrap font-bold text-lg text-blue">₹850</span>
+              </div>
+              <p class="text-xs font-bold" style="color: #00AAFF; margin-top:2px;">By Priya M.</p>
+              
+              <div class="story-box-glass m-t-16">
+                <p class="text-sm font-medium">"Fired at the local kiln. Painted with non-toxic, lead-free glazes."</p>
+              </div>
+
+              <div class="pickup-alert m-t-16">
+                 <span class="dot-blue"></span> 
+                 <div class="text-xs font-medium text-secondary">Ready for pick-up at <br><strong style="color:#000;">Priya's Studio</strong></div>
+              </div>
+
+              <button class="btn-black-huge m-t-16 outline">Reserve Item</button>
+            </div>
+          </div>
+          
+          <!-- Market Item 3 -->
+          <div class="card-aww m-t-24">
+            <div class="card-image-box" style="height: 240px;">
+               <img src="https://picsum.photos/500/300?random=33" alt="Shelf" />
+            </div>
+            <div class="card-body-aww">
+              <div class="flex-between m-b-8">
+                <h2 class="font-inktrap title-aww text-lg">Wall Shelf Unit</h2>
+                <span class="font-inktrap font-bold text-lg text-blue">₹2,200</span>
+              </div>
+              <p class="text-xs font-bold" style="color: #00AAFF; margin-top:2px;">By Rahul S.</p>
+
+              <div class="social-proof-soft m-t-16">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B26A00" stroke-width="2" style="flex-shrink:0"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <span class="text-xs text-secondary" style="line-height:1.4;">Custom sizes available. Ordered 5 times.</span>
+              </div>
+              
+              <button class="btn-black-huge m-t-16 outline">Commission Similar</button>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-spacer"></div>
+      </section>
+
+      <!-- SCREEN: TOOLS -->
+      <section id="screen-tools" class="screen">
+        <div class="header-aww text-black flex-between">
+          <div>
+            <h1 class="font-inktrap hero-title">TOOL<br>LIBRARY.</h1>
+            <p class="text-sm text-secondary m-t-8">Rent securely from trusted neighbors.</p>
+          </div>
+          <button class="icon-sq black"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2"><circle cx="12" cy="10" r="3"></circle><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"></path></svg></button>
+        </div>
+
+        <div class="m-x-20 m-t-8">
+          <div class="map-card-minimal" style="background:#EAEAEA; height:180px; border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center;">
+             <div class="map-badge-aww" style="background:#000; color:#FFF; padding:12px 24px; border-radius:100px; display:flex; align-items:center; gap:8px; font-weight:bold; font-size:14px;"><span class="dot-blue"></span> 12 Tools near you</div>
+          </div>
+        </div>
+
+        <div class="m-x-20 m-t-24 m-b-24">
+          <div class="tool-list flex-col" style="gap: 16px;">
+            
+            <!-- Tool 1 -->
+            <div class="tool-card-soft">
+              <div class="flex-row" style="align-items: flex-start; gap: 16px;">
+                <div class="tool-img-box">
+                  <img src="https://picsum.photos/150/150?random=41" alt="Drill" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="tool-data" style="flex:1;">
+                  <h2 class="font-inktrap text-md">Bosch GSB 600</h2>
+                  <p class="text-xs text-secondary">Vikram S. (Sec 4)</p>
+                  <div class="flex-between m-t-6">
+                    <span class="font-inktrap font-bold text-md">₹200 <span class="text-xs font-normal text-secondary">/ day</span></span>
+                    <span class="text-xs font-bold text-secondary">★ 5.0 (14)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="security-banner-light m-t-12">Insurance included. Level 1 Verified Users.</div>
+              <button class="btn-black-small full-w m-t-12">Request Tool</button>
+            </div>
+
+            <!-- Tool 2 -->
+            <div class="tool-card-soft">
+              <div class="flex-row" style="align-items: flex-start; gap: 16px;">
+                <div class="tool-img-box">
+                  <img src="https://picsum.photos/150/150?random=42" alt="Drum Kit" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="tool-data" style="flex:1;">
+                  <h2 class="font-inktrap text-md">Yamaha Drum Kit</h2>
+                  <p class="text-xs text-secondary">Arjun R. (Sec 1)</p>
+                  <div class="flex-between m-t-6">
+                    <span class="font-inktrap font-bold text-md">₹500 <span class="text-xs font-normal text-secondary">/ day</span></span>
+                    <span class="text-xs font-bold text-secondary">★ 4.8 (8)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="security-banner-light m-t-12">Pick-up only via Mini-truck.</div>
+              <button class="btn-black-small full-w m-t-12">Request Tool</button>
+            </div>
+
+            <!-- Tool 3 -->
+            <div class="tool-card-soft">
+              <div class="flex-row" style="align-items: flex-start; gap: 16px;">
+                <div class="tool-img-box">
+                  <img src="https://picsum.photos/150/150?random=43" alt="Camera" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="tool-data" style="flex:1;">
+                  <h2 class="font-inktrap text-md">DJI Ronin Gimbal</h2>
+                  <p class="text-xs text-secondary">Sunil K. (K-Block)</p>
+                  <div class="flex-between m-t-6">
+                    <span class="font-inktrap font-bold text-md">₹350 <span class="text-xs font-normal text-secondary">/ day</span></span>
+                    <span class="text-xs font-bold text-secondary">★ 4.9 (23)</span>
+                  </div>
+                </div>
+              </div>
+              <button class="btn-black-small full-w m-t-12">Request Tool</button>
+            </div>
+
+            <!-- Tool 4 -->
+            <div class="tool-card-soft">
+              <div class="flex-row" style="align-items: flex-start; gap: 16px;">
+                <div class="tool-img-box">
+                  <img src="https://picsum.photos/150/150?random=44" alt="Sewing" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="tool-data" style="flex:1;">
+                  <h2 class="font-inktrap text-md">Singer Sewing Machine</h2>
+                  <p class="text-xs text-secondary">Aarti P. (Sec 4)</p>
+                  <div class="flex-between m-t-6">
+                    <span class="font-inktrap font-bold text-md">₹150 <span class="text-xs font-normal text-secondary">/ day</span></span>
+                    <span class="text-xs font-bold text-secondary">★ 4.5 (4)</span>
+                  </div>
+                </div>
+              </div>
+              <button class="btn-black-small full-w m-t-12">Request Tool</button>
+            </div>
+
+            <!-- Tool 5 -->
+            <div class="tool-card-soft">
+              <div class="flex-row" style="align-items: flex-start; gap: 16px;">
+                <div class="tool-img-box">
+                  <img src="https://picsum.photos/150/150?random=45" alt="Mic" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="tool-data" style="flex:1;">
+                  <h2 class="font-inktrap text-md">Rode NT1-A Mic</h2>
+                  <p class="text-xs text-secondary">Kabir S. (Sec 9)</p>
+                  <div class="flex-between m-t-6">
+                    <span class="font-inktrap font-bold text-md">₹250 <span class="text-xs font-normal text-secondary">/ day</span></span>
+                    <span class="text-xs font-bold text-secondary">★ 5.0 (2)</span>
+                  </div>
+                </div>
+              </div>
+              <button class="btn-black-small full-w m-t-12">Request Tool</button>
+            </div>
+
+          </div>
+        </div>
+        <div class="bottom-spacer"></div>
+      </section>
+
+      <!-- SCREEN: LIVE -->
+      <section id="screen-live" class="screen">
+        <div class="m-x-20 m-t-20 flex-between">
+           <div class="pill-sm outline-blue flex-row">
+             <span class="dot-blue"></span>
+             <span class="text-xs font-bold" style="line-height:1;">LIVE CHECK-IN</span>
+           </div>
+           <span class="font-inktrap text-xs font-bold tracking-widest text-secondary">ID:SK-99</span>
+        </div>
+
+        <div class="header-aww text-black m-t-16">
+          <h1 class="font-inktrap hero-title" style="font-size:36px; line-height:1.1;">GAGAN'S<br>WORKSHOP</h1>
+        </div>
+
+        <div class="m-x-20 m-t-20 text-center">
+          <div class="qr-box-aww">
+             <!-- Real functional QR code generator proxy -->
+             <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=SKILLDD-SK-9942" alt="QR Code" class="qr-img">
+             <div class="scan-line"></div>
+          </div>
+          <h2 class="font-inktrap title-aww m-t-20">WAITING FOR HANDSHAKE</h2>
+          <p class="text-sm text-secondary m-t-8">Present this code at the front desk</p>
+        </div>
+
+        <div class="m-x-20 m-t-32">
+          <h3 class="font-inktrap text-sm text-secondary m-b-16">PROTOCOL CHECKLIST</h3>
+          
+          <div class="check-list-aww">
+            <label class="check-row-aww">
+              <div class="check-box checked"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+              <div class="check-text">Wear SKILLDD Safety Apron and Eye Protection.</div>
+            </label>
+            <label class="check-row-aww disabled">
+              <div class="check-box"></div>
+              <div class="check-text">
+                Complete Visual Tool Inspection.
+                <div class="badge-mini pink m-t-4">MENTOR REQ.</div>
+              </div>
+            </label>
+            <label class="check-row-aww">
+               <div class="check-box checked"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+               <div class="check-text">
+                 Confirm Scrap Material Selection.
+                 <div class="badge-mini green m-t-4">VOUCHER 1X</div>
+               </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="support-card m-x-20 m-t-32">
+           <img src="https://picsum.photos/100/100?random=55" class="avatar-sm" alt="Sneha">
+           <div style="flex:1;">
+             <span class="font-inktrap font-bold text-sm" style="display:block;">MENTOR SNEHA</span>
+             <span class="text-xs text-secondary">Tap for tactile assistance.</span>
+           </div>
+           <button class="call-icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></button>
+        </div>
+        <div class="bottom-spacer"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- The Black Bottom Navigation -->
+  <nav class="bottom-nav-black">
+    <div class="os-pill"></div>
+    <button class="nav-btn-aww active" data-target="screen-feed">
+      <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div>
+      <span class="nav-lbl">Feed</span>
+    </button>
+    <button class="nav-btn-aww" data-target="screen-live">
+      <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
+      <span class="nav-lbl">Live</span>
+    </button>
+    <button class="nav-btn-aww" data-target="screen-tools">
+      <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div>
+      <span class="nav-lbl">Tools</span>
+    </button>
+    <button class="nav-btn-aww" data-target="screen-market">
+      <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div>
+      <span class="nav-lbl">Market</span>
+    </button>
+    <button class="nav-btn-aww" data-target="screen-passport">
+      <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+      <span class="nav-lbl">Profile</span>
+    </button>
+  </nav>
+
+</div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
