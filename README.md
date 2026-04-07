@@ -1,4 +1,4 @@
-# SKILLDD Premium App 🛠️
+# SKILLDD App 🛠️
 
 Access: [https://v1khyat.github.io/skilldd-app](https://v1khyat.github.io/skilldd-app/)
 
