@@ -22,12 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const liveTitle = document.querySelector('#screen-live .header-aww h1');
   const marketPriceEls = document.querySelectorAll('#screen-market .font-inktrap.font-bold.text-lg.text-blue');
   const pickupStrongEls = document.querySelectorAll('#screen-market .pickup-alert strong');
-  
-  // New Elements for Layout and Search
-  const toolSearchInput = document.getElementById('tool-search-input');
-  const viewToggleBtn = document.getElementById('view-toggle-btn');
-  
-  // Card Expansion Elements
+
+  // Modal Elements
   const cardOverlay = document.getElementById('card-overlay');
   const closeOverlayBtn = document.getElementById('overlay-close-btn');
   const overlayTitle = document.getElementById('overlay-title');
@@ -36,6 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlayImg = document.getElementById('overlay-img');
   const overlayBadge = document.getElementById('overlay-badge');
   const overlayRating = document.getElementById('overlay-rating');
+  const overlayCtaSlot = document.getElementById('overlay-cta-slot');
+  const overlayDesc = document.getElementById('overlay-desc');
+  const toolViewToggle = document.getElementById('tool-view-toggle');
 
   const toastStack = document.createElement('div');
   toastStack.className = 'toast-stack';
@@ -75,9 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     requestedTools: new Set(),
     reservedItems: new Set(),
     joinedClasses: new Set(),
-    checklist: { 1: true, 2: false, 3: true },
-    searchQuery: '',
-    isGridView: true
+    checklist: { 1: true, 2: false, 3: true }
   };
 
   const getLocation = () => locations.find((item) => item.id === appState.locationId) || locations[0];
@@ -141,36 +138,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!toolList) return;
     const activeLocation = getLocation();
     toolList.innerHTML = '';
-    
-    // Apply grid/list view class
-    if(appState.isGridView) {
-      toolList.classList.add('grid-view');
-      toolList.classList.remove('flex-col');
-    } else {
-      toolList.classList.remove('grid-view');
-      toolList.classList.add('flex-col');
-    }
 
-    const filteredTools = toolsCatalog.filter(t => t.name.toLowerCase().includes(appState.searchQuery.toLowerCase()));
-
-    if(filteredTools.length === 0) {
-      toolList.innerHTML = `<p class="m-t-20 text-center text-sm text-secondary" style="grid-column: 1 / -1;">No tools found matching "${appState.searchQuery}"</p>`;
-      return;
-    }
-
-    filteredTools.forEach((tool, index) => {
+    toolsCatalog.forEach((tool, index) => {
       const id = `tool-${index + 1}`;
       const isRequested = appState.requestedTools.has(id);
       const price = Math.round(tool.price * activeLocation.multiplier);
       const card = document.createElement('div');
       card.className = 'tool-card-soft anim-reveal';
+      card.dataset.action = 'expand-card';
+      card.dataset.desc = tool.note;
       card.style.animationDelay = `${index * 30}ms`;
+      card.setAttribute('style', `animation-delay:${index * 30}ms; cursor:pointer;`);
       card.innerHTML = `
-        <div class="flex-row" style="align-items: flex-start; ${!appState.isGridView ? 'gap: 16px;' : ''}">
+        <div class="flex-row" style="align-items: flex-start; gap: 16px;">
           <div class="tool-img-box">
             <img src="${tool.image}" alt="${tool.name}" style="width:100%; height:100%; object-fit:cover;">
           </div>
-          <div class="tool-data" style="flex:1; width: 100%;">
+          <div class="tool-data" style="flex:1;">
             <h2 class="font-inktrap text-md">${tool.name}</h2>
             <p class="text-xs text-secondary">${tool.owner} (${tool.area})</p>
             <div class="flex-between m-t-6">
@@ -179,8 +163,8 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
         </div>
-        ${!appState.isGridView ? `<div class="security-banner-light m-t-12">${tool.note} • ${activeLocation.short}</div>` : ''}
-        <button class="btn-black-small full-w m-t-12" data-action="request-tool" data-tool-id="${id}">${isRequested ? 'Requested' : 'Request Tool'}</button>
+        <div class="security-banner-light m-t-12">${tool.note} • ${activeLocation.short}</div>
+        <button class="btn-black-small full-w m-t-12 bg-btn-green" data-action="request-tool" data-tool-id="${id}">${isRequested ? 'Requested' : 'Request Tool'}</button>
       `;
       toolList.appendChild(card);
     });
@@ -350,22 +334,25 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    if (action === 'expand-card' && cardOverlay) {
-      const card = button.closest('.card-aww');
-      if (!card) return;
-
-      const title = card.querySelector('h2.title-aww')?.textContent || 'Details';
-      const mentor = card.querySelector('.text-secondary.text-sm')?.textContent || '';
-      const price = card.querySelector('.price-aww')?.innerHTML || '';
+    if (action === 'expand-card' && cardOverlay && (button.closest('.card-aww') || button.closest('.tool-card-soft'))) {
+      const card = button.closest('.card-aww') || button.closest('.tool-card-soft');
+      
+      const title = card.querySelector('h2')?.textContent || 'Details';
+      const mentor = card.querySelector('.text-secondary')?.textContent || '';
+      const price = card.querySelector('.price-aww, .text-blue')?.innerHTML || '';
       const imgSrc = card.querySelector('img')?.src || '';
       const badge = card.querySelector('.badge-aww');
-      const rating = card.querySelector('.text-xs.font-bold')?.textContent || '';
+      const rating = card.querySelector('.text-xs.font-bold, .verified')?.textContent || '';
+      const desc = card.getAttribute('data-desc') || 'Detailed information about this specific listing. See reviews and verified badges before you commit.';
+      
+      const ctaBtn = card.querySelector('button[data-action]:not([data-action="expand-card"])') || card.querySelector('button');
 
       if (overlayTitle) overlayTitle.textContent = title;
       if (overlayMentor) overlayMentor.textContent = mentor;
       if (overlayPrice) overlayPrice.innerHTML = price;
       if (overlayImg) overlayImg.src = imgSrc;
       if (overlayRating) overlayRating.textContent = rating;
+      if (overlayDesc) overlayDesc.textContent = desc;
       
       if (overlayBadge) {
          if (badge) {
@@ -375,6 +362,17 @@ document.addEventListener('DOMContentLoaded', () => {
          } else {
            overlayBadge.style.display = 'none';
          }
+      }
+
+      if (overlayCtaSlot && ctaBtn) {
+         overlayCtaSlot.innerHTML = '';
+         const clonedBtn = ctaBtn.cloneNode(true);
+         clonedBtn.style.flex = '1';
+         clonedBtn.style.marginLeft = '12px';
+         clonedBtn.style.height = 'auto';
+         overlayCtaSlot.appendChild(clonedBtn);
+      } else if (overlayCtaSlot) {
+         overlayCtaSlot.innerHTML = '';
       }
 
       cardOverlay.classList.add('active');
@@ -402,7 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
       screens.forEach(s => s.classList.remove('active'));
       document.getElementById(targetId).classList.add('active');
       revealScreenElements(targetId);
-      
+
       // Reset scroll on switch
       const mainContent = document.getElementById('main-content');
       if (mainContent) {
@@ -416,7 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
           scanner.style.display = 'block';
           scanner.style.animation = 'scan 2s cubic-bezier(0.4, 0, 0.2, 1) infinite';
         }
-        
+
         clearTimeout(scannerTimeout);
         scannerTimeout = setTimeout(() => {
           if (scanner) {
@@ -432,13 +430,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-  
+
   // App-level navigation
   window.navigateToScreen = (targetId) => {
     screens.forEach(s => s.classList.remove('active'));
     document.getElementById(targetId).classList.add('active');
     revealScreenElements(targetId);
-    
+
     // Reset scroll on navigate function
     const mainContent = document.getElementById('main-content');
     if (mainContent) {
@@ -447,8 +445,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navItems.forEach(n => n.classList.remove('active'));
     const correspondingNav = Array.from(navItems).find(n => n.getAttribute('data-target') === targetId);
-    if(correspondingNav) {
-        correspondingNav.classList.add('active');
+    if (correspondingNav) {
+      correspondingNav.classList.add('active');
     }
 
     if (targetId === 'screen-live') {
@@ -521,38 +519,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle N key for super long preview
   document.addEventListener('keydown', (e) => {
     if (e.key === 'n' || e.key === 'N') {
-      if (e.target.tagName === 'INPUT') return;
       if (appContainer) {
         appContainer.classList.toggle('super-long');
       }
     }
   });
 
-  // Tools Setup Event Listeners
-  if (toolSearchInput) {
-    toolSearchInput.addEventListener('input', (e) => {
-      appState.searchQuery = e.target.value;
-      renderTools();
-    });
-  }
-
-  if (viewToggleBtn) {
-    viewToggleBtn.addEventListener('click', () => {
-      appState.isGridView = !appState.isGridView;
-      if (appState.isGridView) {
-        viewToggleBtn.classList.add('active-grid');
-        viewToggleBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="grid-icon" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>';
-      } else {
-        viewToggleBtn.classList.remove('active-grid');
-        viewToggleBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="list-icon" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>';
-      }
-      renderTools();
-    });
-  }
-
   if (closeOverlayBtn && cardOverlay) {
     closeOverlayBtn.addEventListener('click', () => {
       cardOverlay.classList.remove('active');
+    });
+  }
+
+  if (toolViewToggle && toolList) {
+    toolViewToggle.addEventListener('click', () => {
+      toolList.classList.toggle('grid-view');
+      toolViewToggle.classList.toggle('active-grid');
     });
   }
 

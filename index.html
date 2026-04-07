@@ -1,620 +1,742 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>SKILLDD Premium</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/src/style.css" />
 </head>
+
 <body>
 
-<div id="app" class="app-container">
-  
-  <div class="status-bar text-white">
-    <span class="time">9:41</span>
-    <div class="dynamic-island"></div>
-    <div class="status-icons flex-row">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"></path></svg>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"></path></svg>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="18" height="12" rx="2" ry="2"></rect><line x1="23" y1="13" x2="23" y2="11"></line></svg>
+  <div id="app" class="app-container">
+
+    <div class="status-bar text-white">
+      <span class="time">9:41</span>
+      <div class="dynamic-island"></div>
+      <div class="status-icons flex-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20V10M18 20V4M6 20v-4"></path>
+        </svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01">
+          </path>
+        </svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="1" y="6" width="18" height="12" rx="2" ry="2"></rect>
+          <line x1="23" y1="13" x2="23" y2="11"></line>
+        </svg>
+      </div>
     </div>
-  </div>
 
-  <div class="white-card">
-    <main id="main-content">
-      
-      <!-- SCREEN: FEED -->
-      <section id="screen-feed" class="screen active">
-        <div class="header-aww text-black" style="padding-bottom:12px;">
-          <button class="location-pill" id="location-trigger" type="button" aria-expanded="false">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            <span id="current-location-label">Indiranagar, BLR</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </button>
-          <div id="location-dropdown" class="location-dropdown hidden" aria-hidden="true"></div>
-          <h1 class="font-inktrap hero-title m-t-8" style="font-size:34px;">DISCOVER<br>THE GUILD.</h1>
-        </div>
-        
-        <div class="search-sticky-wrapper glass-header">
-          <div class="search-neo m-x-20">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input type="text" placeholder="Find 450+ skills, tools & neighbors..." />
+    <div class="white-card">
+      <main id="main-content">
+
+        <!-- SCREEN: FEED -->
+        <section id="screen-feed" class="screen active">
+          <div class="header-aww text-black" style="padding-bottom:12px;">
+            <button class="location-pill" id="location-trigger" type="button" aria-expanded="false">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span id="current-location-label">Indiranagar, BLR</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div id="location-dropdown" class="location-dropdown hidden" aria-hidden="true"></div>
+            <h1 class="font-inktrap hero-title m-t-8" style="font-size:34px;">DISCOVER<br>THE GUILD.</h1>
           </div>
-        </div>
 
-        <div class="stats-aww m-x-20 m-t-24">
-          <div class="stat-neo">
-            <span class="font-inktrap" id="feed-live-count">124</span>
-            <span class="stat-lbl" id="feed-live-label">Live in Indiranagar</span>
-          </div>
-          <div class="stat-neo outline">
-            <span class="font-inktrap" id="feed-scrap-count">15</span>
-            <span class="stat-lbl" id="feed-scrap-label">Scrap Bins Active</span>
-          </div>
-        </div>
-
-        <div class="m-x-20 m-t-16 m-b-24">
-          <button class="btn-checkin-real" onclick="window.navigateToScreen('screen-live')">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            Check-In to Class
-          </button>
-        </div>
-
-        <div class="category-scroll m-b-32 pl-20 pr-20">
-          <span class="pill-aww category-pill active">Furniture Upcycle</span>
-          <span class="pill-aww category-pill">Micro-Electronics</span>
-          <span class="pill-aww category-pill">Leather Craft</span>
-          <span class="pill-aww category-pill">Legacy Tools</span>
-          <span class="pill-aww category-pill">Pottery Basics</span>
-        </div>
-
-        <div class="cards-stack m-x-20" style="padding-bottom: 24px;">
-          <!-- Card 1 -->
-          <div class="card-aww" data-action="expand-card">
-            <div class="card-image-box">
-              <img src="https://loremflickr.com/600/400/carpentry,tools/all" alt="Joinery">
-              <div class="badge-aww pink">ONLY 2 SLOTS</div>
-            </div>
-            <div class="card-body-aww">
-              <h2 class="font-inktrap title-aww">Adv. Dovetail Joinery</h2>
-              <div class="flex-between m-b-16">
-                <span class="text-secondary text-sm">Master Saxena <span class="verified">✔ Silver</span></span>
-                <span class="text-xs font-bold" style="color:#000;">★ 4.9 (328)</span>
-              </div>
-              <div class="divider-aww"></div>
-              <div class="flex-between m-t-16 align-bottom">
-                <div class="price-aww">₹1,500 <span class="sub-lbl">Inc. Scrap Bundle</span></div>
-                <button class="btn-black-small" data-action="book-class">Book</button>
-              </div>
+          <div class="search-sticky-wrapper">
+            <div class="search-neo m-x-20">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" placeholder="Find 450+ skills, tools & neighbors..." />
             </div>
           </div>
-          
-          <!-- Card 2 -->
-          <div class="card-aww m-t-20" data-action="expand-card">
-            <div class="card-image-box">
-              <img src="https://loremflickr.com/600/400/powertools,drill/all" alt="Drill">
-              <div class="badge-aww blue">TOMORROW</div>
+
+          <div class="stats-aww m-x-20 m-t-24">
+            <div class="stat-neo bg-panel-green">
+              <span class="font-inktrap" id="feed-live-count">124</span>
+              <span class="stat-lbl" id="feed-live-label">Live in Indiranagar</span>
             </div>
-            <div class="card-body-aww">
-              <h2 class="font-inktrap title-aww">Power Tools Basics</h2>
-              <div class="flex-between m-b-16">
-                <span class="text-secondary text-sm">Gagan's Hardware</span>
-                <span class="text-xs font-bold" style="color:#000;">★ 4.7 (112)</span>
+            <div class="stat-neo outline">
+              <span class="font-inktrap" id="feed-scrap-count">15</span>
+              <span class="stat-lbl" id="feed-scrap-label">Scrap Bins Active</span>
+            </div>
+          </div>
+
+          <div class="m-x-20 m-t-16 m-b-24">
+            <button class="btn-checkin-real" onclick="window.navigateToScreen('screen-live')">
+              Check-In to Class
+            </button>
+          </div>
+
+          <div class="category-scroll m-b-32 pl-20 pr-20">
+            <span class="pill-aww category-pill active">Furniture Upcycle</span>
+            <span class="pill-aww category-pill">Micro-Electronics</span>
+            <span class="pill-aww category-pill">Leather Craft</span>
+            <span class="pill-aww category-pill">Legacy Tools</span>
+            <span class="pill-aww category-pill">Pottery Basics</span>
+          </div>
+
+          <div class="cards-stack m-x-20" style="padding-bottom: 24px;">
+            <!-- Card 1 -->
+            <div class="card-aww" data-action="expand-card" data-desc="Master the intricate art of Adv. Dovetail Joinery with Master Saxena. In this hands-on workshop, you'll learn to craft seamless, enduring joints without nails or screws, creating beautiful and sturdy connections ideal for fine furniture and cabinetry.">
+              <div class="card-image-box">
+                <img src="https://loremflickr.com/600/400/carpentry,tools/all" alt="Joinery">
+                <div class="badge-aww pink">ONLY 2 SLOTS</div>
               </div>
-              <div class="divider-aww"></div>
-              <div class="flex-between m-t-16 align-bottom">
-                <div class="price-aww">₹800 <span class="sub-lbl">Safety Gear Inc.</span></div>
-                <button class="btn-black-small outline" data-action="join-class">Join</button>
+              <div class="card-body-aww">
+                <h2 class="font-inktrap title-aww">Adv. Dovetail Joinery</h2>
+                <div class="flex-between m-b-16">
+                  <span class="text-secondary text-sm">Master Saxena <span class="verified">✔ Silver</span></span>
+                  <span class="text-xs font-bold" style="color:#000;">★ 4.9 (328)</span>
+                </div>
+                <div class="divider-aww"></div>
+                <div class="flex-between m-t-16 align-bottom">
+                  <div class="price-aww">₹1,500 <span class="sub-lbl">Inc. Scrap Bundle</span></div>
+                  <button class="btn-black-small" data-action="book-class">Book</button>
+                </div>
               </div>
             </div>
-          </div>
-          
-          <!-- Card 3 -->
-          <div class="card-aww m-t-20" data-action="expand-card">
-            <div class="card-image-box">
-              <img src="https://loremflickr.com/600/400/pottery,clay/all" alt="Pottery">
-            </div>
-            <div class="card-body-aww">
-              <h2 class="font-inktrap title-aww">Ceramics & Wheel Throwing</h2>
-              <div class="flex-between m-b-16">
-                <span class="text-secondary text-sm">Priya's Studio</span>
-                <span class="text-xs font-bold" style="color:#000;">★ 4.8 (85)</span>
-              </div>
-              <div class="divider-aww"></div>
-              <div class="flex-between m-t-16 align-bottom">
-                <div class="price-aww">₹2,000 <span class="sub-lbl">Clay Included</span></div>
-                <button class="btn-black-small outline" data-action="join-class">Join</button>
-              </div>
-            </div>
-          </div>
 
-          <!-- Card 4 -->
-          <div class="card-aww m-t-20" data-action="expand-card">
-            <div class="card-image-box">
-              <img src="https://loremflickr.com/600/400/sewing,fabric/all" alt="Sewing">
-            </div>
-            <div class="card-body-aww">
-              <h2 class="font-inktrap title-aww">Garment Alteration 101</h2>
-              <div class="flex-between m-b-16">
-                <span class="text-secondary text-sm">Neha's Boutique</span>
-                <span class="text-xs font-bold" style="color:#000;">★ 4.9 (42)</span>
+            <!-- Card 2 -->
+            <div class="card-aww m-t-20" data-action="expand-card" data-desc="Get comfortable with essential power tools. This introductory class covers safety protocols, tool selection, and basic operations for drills, saws, and sanders. Perfect for beginners looking to start DIY projects.">
+              <div class="card-image-box">
+                <img src="https://loremflickr.com/600/400/powertools,drill/all" alt="Drill">
+                <div class="badge-aww blue">TOMORROW</div>
               </div>
-              <div class="divider-aww"></div>
-              <div class="flex-between m-t-16 align-bottom">
-                <div class="price-aww">₹1,200 <span class="sub-lbl">Bring own piece</span></div>
-                <button class="btn-black-small outline" data-action="join-class">Join</button>
+              <div class="card-body-aww">
+                <h2 class="font-inktrap title-aww">Power Tools Basics</h2>
+                <div class="flex-between m-b-16">
+                  <span class="text-secondary text-sm">Gagan's Hardware</span>
+                  <span class="text-xs font-bold" style="color:#000;">★ 4.7 (112)</span>
+                </div>
+                <div class="divider-aww"></div>
+                <div class="flex-between m-t-16 align-bottom">
+                  <div class="price-aww">₹800 <span class="sub-lbl">Safety Gear Inc.</span></div>
+                  <button class="btn-black-small outline" data-action="join-class">Join</button>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Card 5 -->
-          <div class="card-aww m-t-20" data-action="expand-card">
-            <div class="card-image-box">
-              <img src="https://loremflickr.com/600/400/motorcycle,engine/all" alt="Motorcycle">
-              <div class="badge-aww yellow" style="color:#000;">HOT!</div>
-            </div>
-            <div class="card-body-aww">
-              <h2 class="font-inktrap title-aww">Vintage Engine Teardown</h2>
-              <div class="flex-between m-b-16">
-                <span class="text-secondary text-sm">Rahul's Garage</span>
-                <span class="text-xs font-bold" style="color:#000;">★ 5.0 (20)</span>
+            <!-- Card 3 -->
+            <div class="card-aww m-t-20" data-action="expand-card" data-desc="Discover the meditative process of working with clay. Learn wedging, centering, and pulling techniques to create beautiful bowls and mugs on a potter's wheel under expert guidance.">
+              <div class="card-image-box">
+                <img src="https://loremflickr.com/600/400/pottery,clay/all" alt="Pottery">
               </div>
-              <div class="divider-aww"></div>
-              <div class="flex-between m-t-16 align-bottom">
-                <div class="price-aww">₹3,000 <span class="sub-lbl">For enthusiasts</span></div>
-                <button class="btn-black-small outline" data-action="join-class">Join</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="bottom-spacer"></div>
-      </section>
-
-      <!-- SCREEN: EXPERT PROFILE -->
-      <section id="screen-expert" class="screen" style="padding-top: 32px;">
-        <div class="nav-top m-x-20 flex-between">
-          <button class="icon-sq" onclick="window.navigateToScreen('screen-feed')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></button>
-          <span class="font-inktrap text-xs font-bold tracking-widest text-secondary">MENTOR / 01</span>
-        </div>
-
-        <div class="expert-hero text-center m-t-20 m-x-20">
-          <div class="avatar-holder">
-            <img src="https://i.pravatar.cc/200?img=11" class="avatar-huge" alt="Saxena">
-            <div class="verified-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
-          </div>
-          <h1 class="font-inktrap hero-title-sm m-t-16">MASTER<br>SAXENA</h1>
-          <p class="text-secondary text-sm m-t-8">Verified SKILLDD Guild Master</p>
-        </div>
-
-        <div class="stats-grid m-x-20 m-t-24">
-          <div class="stat-blk">
-            <span class="font-inktrap text-lg">500+</span>
-            <span class="lbl-sm">HOURS</span>
-          </div>
-          <div class="stat-blk">
-            <span class="font-inktrap text-lg">158</span>
-            <span class="lbl-sm">VOUCHED</span>
-          </div>
-          <div class="stat-blk">
-            <span class="font-inktrap text-lg">30y</span>
-            <span class="lbl-sm">EXP</span>
-          </div>
-        </div>
-
-        <div class="quote-card m-x-20 m-t-24 yellow-bg">
-          <p class="text-sm font-medium" style="line-height: 1.6;">“Retired Head of Carpentry at ITI. Specializes in sustainable teak construction and hand-joinery.”</p>
-        </div>
-
-        <div class="m-x-20 m-t-32">
-          <h3 class="font-inktrap text-md m-b-16">STUDENT PROJECTS</h3>
-          <div class="gallery-scroll">
-            <div class="gal-item">
-              <img src="https://loremflickr.com/300/300/wooden,stool/all" alt="Stool">
-              <span class="gal-lbl" style="position:absolute; bottom:8px; left:8px; background:#FFF; font-size:11px; font-weight:700; padding:4px 8px; border-radius:10px;">Ankit's Stool</span>
-            </div>
-            <div class="gal-item">
-              <img src="https://loremflickr.com/300/300/wooden,shelf/all" alt="Shelf">
-              <span class="gal-lbl" style="position:absolute; bottom:8px; left:8px; background:#FFF; font-size:11px; font-weight:700; padding:4px 8px; border-radius:10px;">Rahul's Shelf</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="action-footer m-x-20 m-t-32">
-          <div class="flex-row m-b-16">
-            <span class="dot-blue"></span>
-            <span class="text-sm text-secondary font-medium">Responds in ~5m. Slots open.</span>
-          </div>
-          <button class="btn-black-huge">Book Workshop</button>
-        </div>
-        <div class="bottom-spacer"></div>
-      </section>
-
-      <!-- SCREEN: PASSPORT -->
-      <section id="screen-passport" class="screen">
-        <div class="header-aww text-black">
-          <h1 class="font-inktrap hero-title">YOUR<br>PASSPORT.</h1>
-        </div>
-        
-        <div class="passport-hero text-center m-x-20 m-t-12">
-          <div class="avatar-ring-aww">
-            <div class="ring-track"></div>
-            <div class="ring-progress"></div>
-            <img src="https://i.pravatar.cc/150?img=5" alt="User">
-          </div>
-          <h2 class="font-inktrap title-aww m-t-16">RIYA SHARMA</h2>
-          <div class="rank-badge m-t-8 yellow-bg text-black font-inktrap font-bold text-sm">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="#000"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            MASTER APPRENTICE
-          </div>
-          <p class="text-sm text-secondary m-t-8" id="profile-rank-subtitle">Top 5% in Indiranagar</p>
-        </div>
-
-        <div class="hours-card m-x-20 m-t-24">
-          <span class="font-inktrap text-lg" id="hours-clocked" style="font-size: 32px;">48.0</span>
-          <span class="lbl-sm" style="flex:1;">HOURS CLOCKED</span>
-        </div>
-
-        <div class="m-x-20 m-t-32">
-          <h3 class="font-inktrap text-md m-b-16 text-secondary">VERIFIED SKILLS</h3>
-          <div class="skill-blk">
-            <div class="flex-between m-b-8">
-              <span class="font-bold text-sm">Hand Tools</span>
-              <span class="pill-sm blue-bg text-blue">Expert</span>
-            </div>
-            <span class="text-xs text-secondary">Vouched by 5 Mentors</span>
-            <div class="prog-bar-wrap m-t-8"><div class="prog-fill" data-target-width="100" style="width:100%"></div></div>
-          </div>
-          <div class="skill-blk m-t-16">
-            <div class="flex-between m-b-8">
-              <span class="font-bold text-sm">Power Tools</span>
-              <span class="pill-sm yellow-bg text-yellow">Intermediate</span>
-            </div>
-            <span class="text-xs text-secondary">4/5 Safety Sessions</span>
-            <div class="prog-bar-wrap m-t-8"><div class="prog-fill" data-target-width="80" style="width:80%"></div></div>
-          </div>
-        </div>
-
-        <div class="m-x-20 m-t-32 m-b-24">
-          <h3 class="font-inktrap text-md m-b-16 text-secondary">HONOR BADGES</h3>
-          <div class="sleek-badges">
-            <div class="badge-row-sleek">
-              <div class="badge-icon-sq"><svg width="20" height="20" fill="none" stroke="#00AAFF" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
-              <div style="flex:1;">
-                <span class="text-sm font-bold m-b-4" style="display:block;">Safety Pro</span>
-                <span class="text-xs text-secondary">Verified by 2 mentors</span>
+              <div class="card-body-aww">
+                <h2 class="font-inktrap title-aww">Ceramics & Wheel Throwing</h2>
+                <div class="flex-between m-b-16">
+                  <span class="text-secondary text-sm">Priya's Studio</span>
+                  <span class="text-xs font-bold" style="color:#000;">★ 4.8 (85)</span>
+                </div>
+                <div class="divider-aww"></div>
+                <div class="flex-between m-t-16 align-bottom">
+                  <div class="price-aww">₹2,000 <span class="sub-lbl">Clay Included</span></div>
+                  <button class="btn-black-small outline" data-action="join-class">Join</button>
+                </div>
               </div>
             </div>
-            <div class="badge-row-sleek">
-              <div class="badge-icon-sq"><svg width="20" height="20" fill="none" stroke="#FF4DA6" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
-              <div style="flex:1;">
-                <span class="text-sm font-bold m-b-4" style="display:block;">Craft Hero</span>
-                <span class="text-xs text-secondary">Upcycled >50kg</span>
+
+            <!-- Card 4 -->
+            <div class="card-aww m-t-20" data-action="expand-card" data-desc="Bring your ill-fitting clothes and learn how to alter them perfectly. We'll cover hemming, tailoring seams, and simple repairing techniques using both hand-sewing and sewing machines.">
+              <div class="card-image-box">
+                <img src="https://loremflickr.com/600/400/sewing,fabric/all" alt="Sewing">
+              </div>
+              <div class="card-body-aww">
+                <h2 class="font-inktrap title-aww">Garment Alteration 101</h2>
+                <div class="flex-between m-b-16">
+                  <span class="text-secondary text-sm">Neha's Boutique</span>
+                  <span class="text-xs font-bold" style="color:#000;">★ 4.9 (42)</span>
+                </div>
+                <div class="divider-aww"></div>
+                <div class="flex-between m-t-16 align-bottom">
+                  <div class="price-aww">₹1,200 <span class="sub-lbl">Bring own piece</span></div>
+                  <button class="btn-black-small outline" data-action="join-class">Join</button>
+                </div>
               </div>
             </div>
-            <div class="badge-row-sleek">
-              <div class="badge-icon-sq"><svg width="20" height="20" fill="none" stroke="#4A5500" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
-              <div style="flex:1;">
-                <span class="text-sm font-bold m-b-4" style="display:block;">Legacy Bridge</span>
-                <span class="text-xs text-secondary">Top community contributor</span>
+
+            <!-- Card 5 -->
+            <div class="card-aww m-t-20" data-action="expand-card" data-desc="Deep dive into the anatomy of vintage motorcycle engines. Disassemble, inspect, clean, and reassemble a classic two-stroke engine while learning about mechanical harmony and troubleshooting.">
+              <div class="card-image-box">
+                <img src="https://loremflickr.com/600/400/motorcycle,engine/all" alt="Motorcycle">
+                <div class="badge-aww yellow" style="color:#000;">HOT!</div>
+              </div>
+              <div class="card-body-aww">
+                <h2 class="font-inktrap title-aww">Vintage Engine Teardown</h2>
+                <div class="flex-between m-b-16">
+                  <span class="text-secondary text-sm">Rahul's Garage</span>
+                  <span class="text-xs font-bold" style="color:#000;">★ 5.0 (20)</span>
+                </div>
+                <div class="divider-aww"></div>
+                <div class="flex-between m-t-16 align-bottom">
+                  <div class="price-aww">₹3,000 <span class="sub-lbl">For enthusiasts</span></div>
+                  <button class="btn-black-small outline" data-action="join-class">Join</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="bottom-spacer"></div>
-      </section>
+          <div class="bottom-spacer"></div>
+        </section>
 
-      <!-- SCREEN: MARKET -->
-      <section id="screen-market" class="screen">
-        <div class="header-aww text-black">
-          <h1 class="font-inktrap hero-title">LOCAL<br>MARKET.</h1>
-          <p class="text-sm text-secondary m-t-8" id="market-subtitle">Crafted locally. Sold by neighbors.</p>
-        </div>
+        <!-- SCREEN: EXPERT PROFILE -->
+        <section id="screen-expert" class="screen" style="padding-top: 32px;">
+          <div class="nav-top m-x-20 flex-between">
+            <button class="icon-sq" onclick="window.navigateToScreen('screen-feed')"><svg width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg></button>
+            <span class="font-inktrap text-xs font-bold tracking-widest text-secondary">MENTOR / 01</span>
+          </div>
 
-        <div class="m-x-20 m-t-16">
-          <h3 class="font-inktrap text-md m-b-16 text-secondary">TRENDING NOW</h3>
-          
-          <div class="card-aww">
-            <div class="card-image-box" style="height: 240px;">
-               <img src="https://loremflickr.com/500/300/coffeetable,wood/all" alt="Coffee Table" />
+          <div class="expert-hero text-center m-t-20 m-x-20">
+            <div class="avatar-holder">
+              <img src="https://i.pravatar.cc/200?img=11" class="avatar-huge" alt="Saxena">
+              <div class="verified-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFF"
+                  stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg></div>
             </div>
-            <div class="card-body-aww">
-              <div class="flex-between m-b-8">
-                <h2 class="font-inktrap title-aww text-lg">Recycled Table</h2>
-                <span class="font-inktrap font-bold text-lg text-blue">₹4,500</span>
-              </div>
-              <p class="text-xs font-bold" style="color: #00AAFF; margin-top:2px;">By Ankit K.</p>
-              
-              <div class="story-box-glass m-t-16">
-                <p class="text-sm font-medium">"Made at Gagan’s Workshop using scrap wood from the community bin."</p>
-              </div>
+            <h1 class="font-inktrap hero-title-sm m-t-16">MASTER<br>SAXENA</h1>
+            <p class="text-secondary text-sm m-t-8">Verified SKILLDD Guild Master</p>
+          </div>
 
-              <div class="social-proof-soft m-t-16">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B26A00" stroke-width="2" style="flex-shrink:0"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                <span class="text-xs text-secondary" style="line-height:1.4;"><strong>12 people</strong> have this in watchlist. One of a kind.</span>
-              </div>
-              
-              <div class="pickup-alert m-t-16">
-                 <span class="dot-blue"></span> 
-                 <div class="text-xs font-medium text-secondary">Ready for pick-up at <br><strong style="color:#000;">Gagan’s (Shelf A)</strong></div>
-              </div>
-
-              <button class="btn-black-huge m-t-16" data-action="reserve-item">Reserve Item</button>
+          <div class="stats-grid m-x-20 m-t-24">
+            <div class="stat-blk">
+              <span class="font-inktrap text-lg">500+</span>
+              <span class="lbl-sm">HOURS</span>
+            </div>
+            <div class="stat-blk">
+              <span class="font-inktrap text-lg">158</span>
+              <span class="lbl-sm">VOUCHED</span>
+            </div>
+            <div class="stat-blk">
+              <span class="font-inktrap text-lg">30y</span>
+              <span class="lbl-sm">EXP</span>
             </div>
           </div>
 
-          <!-- Market Item 2 -->
-          <div class="card-aww m-t-24">
-            <div class="card-image-box" style="height: 240px;">
-               <img src="https://loremflickr.com/500/300/ceramic,plantpot/all" alt="Plant Pot" />
-            </div>
-            <div class="card-body-aww">
-              <div class="flex-between m-b-8">
-                <h2 class="font-inktrap title-aww text-lg">Ceramic Pot</h2>
-                <span class="font-inktrap font-bold text-lg text-blue">₹850</span>
-              </div>
-              <p class="text-xs font-bold" style="color: #00AAFF; margin-top:2px;">By Priya M.</p>
-              
-              <div class="story-box-glass m-t-16">
-                <p class="text-sm font-medium">"Fired at the local kiln. Painted with non-toxic, lead-free glazes."</p>
-              </div>
+          <div class="quote-card m-x-20 m-t-24 yellow-bg">
+            <p class="text-sm font-medium" style="line-height: 1.6;">“Retired Head of Carpentry at ITI. Specializes in
+              sustainable teak construction and hand-joinery.”</p>
+          </div>
 
-              <div class="pickup-alert m-t-16">
-                 <span class="dot-blue"></span> 
-                 <div class="text-xs font-medium text-secondary">Ready for pick-up at <br><strong style="color:#000;">Priya's Studio</strong></div>
+          <div class="m-x-20 m-t-32">
+            <h3 class="font-inktrap text-md m-b-16">STUDENT PROJECTS</h3>
+            <div class="gallery-scroll">
+              <div class="gal-item">
+                <img src="https://loremflickr.com/300/300/wooden,stool/all" alt="Stool">
+                <span class="gal-lbl"
+                  style="position:absolute; bottom:8px; left:8px; background:#FFF; font-size:11px; font-weight:700; padding:4px 8px; border-radius:10px;">Ankit's
+                  Stool</span>
               </div>
-
-              <button class="btn-black-huge m-t-16 outline" data-action="reserve-item">Reserve Item</button>
+              <div class="gal-item">
+                <img src="https://loremflickr.com/300/300/wooden,shelf/all" alt="Shelf">
+                <span class="gal-lbl"
+                  style="position:absolute; bottom:8px; left:8px; background:#FFF; font-size:11px; font-weight:700; padding:4px 8px; border-radius:10px;">Rahul's
+                  Shelf</span>
+              </div>
             </div>
           </div>
-          
-          <!-- Market Item 3 -->
-          <div class="card-aww m-t-24">
-            <div class="card-image-box" style="height: 240px;">
-               <img src="https://loremflickr.com/500/300/wallshelf,wood/all" alt="Shelf" />
+
+          <div class="action-footer m-x-20 m-t-32">
+            <div class="flex-row m-b-16">
+              <span class="dot-blue"></span>
+              <span class="text-sm text-secondary font-medium">Responds in ~5m. Slots open.</span>
             </div>
-            <div class="card-body-aww">
-              <div class="flex-between m-b-8">
-                <h2 class="font-inktrap title-aww text-lg">Wall Shelf Unit</h2>
-                <span class="font-inktrap font-bold text-lg text-blue">₹2,200</span>
-              </div>
-              <p class="text-xs font-bold" style="color: #00AAFF; margin-top:2px;">By Rahul S.</p>
+            <button class="btn-black-huge">Book Workshop</button>
+          </div>
+          <div class="bottom-spacer"></div>
+        </section>
 
-              <div class="social-proof-soft m-t-16">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B26A00" stroke-width="2" style="flex-shrink:0"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                <span class="text-xs text-secondary" style="line-height:1.4;">Custom sizes available. Ordered 5 times.</span>
-              </div>
-              
-              <button class="btn-black-huge m-t-16 outline" data-action="commission-item">Commission Similar</button>
+        <!-- SCREEN: PASSPORT -->
+        <section id="screen-passport" class="screen">
+          <div class="header-aww text-black">
+            <h1 class="font-inktrap hero-title">YOUR<br>PASSPORT.</h1>
+          </div>
+
+          <div class="passport-hero text-center m-x-20 m-t-12">
+            <div class="avatar-ring-aww">
+              <div class="ring-track"></div>
+              <div class="ring-progress"></div>
+              <img src="https://i.pravatar.cc/150?img=5" alt="User">
             </div>
+            <h2 class="font-inktrap title-aww m-t-16">RIYA SHARMA</h2>
+            <div class="rank-badge m-t-8 yellow-bg text-black font-inktrap font-bold text-sm">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#000">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                </polygon>
+              </svg>
+              MASTER APPRENTICE
+            </div>
+            <p class="text-sm text-secondary m-t-8" id="profile-rank-subtitle">Top 5% in Indiranagar</p>
           </div>
-        </div>
-        <div class="bottom-spacer"></div>
-      </section>
 
-      <!-- SCREEN: TOOLS -->
-      <section id="screen-tools" class="screen">
-        <div class="header-aww text-black flex-between">
-          <div>
-            <h1 class="font-inktrap hero-title">TOOL<br>LIBRARY.</h1>
-            <p class="text-sm text-secondary m-t-8">Rent securely from trusted neighbors.</p>
+          <div class="hours-card m-x-20 m-t-24">
+            <span class="font-inktrap text-lg" id="hours-clocked" style="font-size: 32px;">48.0</span>
+            <span class="lbl-sm" style="flex:1;">HOURS CLOCKED</span>
           </div>
-          <button class="icon-sq black"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2"><circle cx="12" cy="10" r="3"></circle><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"></path></svg></button>
-        </div>
 
-        <div class="m-x-20 m-t-8">
-          <div class="map-card-minimal" style="height:140px; border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; background: url('https://loremflickr.com/600/200/map,streets/all') center/cover;">
-             <div class="map-badge-aww" id="tools-nearby-badge" style="background:rgba(0,0,0,0.8); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); color:#FFF; padding:12px 24px; border-radius:100px; display:flex; align-items:center; gap:8px; font-weight:bold; font-size:14px;"><span class="dot-blue"></span> <span id="tools-nearby-count">12</span> Tools near you</div>
-          </div>
-        </div>
-
-        <div class="tools-controls-glass m-x-20 m-t-16 flex-between">
-          <div style="flex:1; margin-right:12px;">
-            <input type="text" id="tool-search-input" class="search-input-sleek" placeholder="Search by name or category..." />
-          </div>
-          <button id="view-toggle-btn" class="view-toggle-btn active-grid">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="grid-icon" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-          </button>
-        </div>
-
-        <div class="m-x-20 m-t-16 m-b-24">
-          <div id="tool-list" class="tool-list grid-view">
+          <div class="m-x-20 m-t-32">
+            <div class="persona-switcher m-b-24">
+              <div class="sw-btn active">LEARNER</div>
+              <div class="sw-btn" onclick="window.location.href='./mentor.html'">MENTOR</div>
+              <div class="sw-btn" onclick="window.location.href='./owner.html'">OWNER</div>
+            </div>
             
-            <!-- Tool 1 -->
-            <div class="tool-card-soft">
-              <div class="flex-row" style="align-items: flex-start; gap: 16px;">
-                <div class="tool-img-box">
-                  <img src="https://loremflickr.com/150/150/drill,bosch/all" alt="Drill" style="width:100%; height:100%; object-fit:cover;">
-                </div>
-                <div class="tool-data" style="flex:1;">
-                  <h2 class="font-inktrap text-md">Bosch GSB 600</h2>
-                  <p class="text-xs text-secondary">Vikram S. (Sec 4)</p>
-                  <div class="flex-between m-t-6">
-                    <span class="font-inktrap font-bold text-md">₹200 <span class="text-xs font-normal text-secondary">/ day</span></span>
-                    <span class="text-xs font-bold text-secondary">★ 5.0 (14)</span>
-                  </div>
-                </div>
+            <h3 class="font-inktrap text-md m-b-16 text-secondary">VERIFIED SKILLS</h3>
+            <div class="skill-blk">
+              <div class="flex-between m-b-8">
+                <span class="font-bold text-sm">Hand Tools</span>
+                <span class="pill-sm blue-bg text-blue">Expert</span>
               </div>
-              <div class="security-banner-light m-t-12">Insurance included. Level 1 Verified Users.</div>
-              <button class="btn-black-small full-w m-t-12" data-action="request-tool">Request Tool</button>
-            </div>
-
-            <!-- Tool 2 -->
-            <div class="tool-card-soft">
-              <div class="flex-row" style="align-items: flex-start; gap: 16px;">
-                <div class="tool-img-box">
-                  <img src="https://loremflickr.com/150/150/drumkit,yamaha/all" alt="Drum Kit" style="width:100%; height:100%; object-fit:cover;">
-                </div>
-                <div class="tool-data" style="flex:1;">
-                  <h2 class="font-inktrap text-md">Yamaha Drum Kit</h2>
-                  <p class="text-xs text-secondary">Arjun R. (Sec 1)</p>
-                  <div class="flex-between m-t-6">
-                    <span class="font-inktrap font-bold text-md">₹500 <span class="text-xs font-normal text-secondary">/ day</span></span>
-                    <span class="text-xs font-bold text-secondary">★ 4.8 (8)</span>
-                  </div>
-                </div>
+              <span class="text-xs text-secondary">Vouched by 5 Mentors</span>
+              <div class="prog-bar-wrap m-t-8">
+                <div class="prog-fill" data-target-width="100" style="width:100%"></div>
               </div>
-              <div class="security-banner-light m-t-12">Pick-up only via Mini-truck.</div>
-              <button class="btn-black-small full-w m-t-12" data-action="request-tool">Request Tool</button>
             </div>
-
-            <!-- Tool 3 -->
-            <div class="tool-card-soft">
-              <div class="flex-row" style="align-items: flex-start; gap: 16px;">
-                <div class="tool-img-box">
-                  <img src="https://loremflickr.com/150/150/camera,gimbal/all" alt="Camera" style="width:100%; height:100%; object-fit:cover;">
-                </div>
-                <div class="tool-data" style="flex:1;">
-                  <h2 class="font-inktrap text-md">DJI Ronin Gimbal</h2>
-                  <p class="text-xs text-secondary">Sunil K. (K-Block)</p>
-                  <div class="flex-between m-t-6">
-                    <span class="font-inktrap font-bold text-md">₹350 <span class="text-xs font-normal text-secondary">/ day</span></span>
-                    <span class="text-xs font-bold text-secondary">★ 4.9 (23)</span>
-                  </div>
-                </div>
+            <div class="skill-blk m-t-16">
+              <div class="flex-between m-b-8">
+                <span class="font-bold text-sm">Power Tools</span>
+                <span class="pill-sm yellow-bg text-yellow">Intermediate</span>
               </div>
-              <button class="btn-black-small full-w m-t-12" data-action="request-tool">Request Tool</button>
-            </div>
-
-            <!-- Tool 5 -->
-            <div class="tool-card-soft">
-              <div class="flex-row" style="align-items: flex-start; gap: 16px;">
-                <div class="tool-img-box">
-                  <img src="https://loremflickr.com/150/150/microphone,studio/all" alt="Mic" style="width:100%; height:100%; object-fit:cover;">
-                </div>
-                <div class="tool-data" style="flex:1;">
-                  <h2 class="font-inktrap text-md">Rode NT1-A Mic</h2>
-                  <p class="text-xs text-secondary">Kabir S. (Sec 9)</p>
-                  <div class="flex-between m-t-6">
-                    <span class="font-inktrap font-bold text-md">₹250 <span class="text-xs font-normal text-secondary">/ day</span></span>
-                    <span class="text-xs font-bold text-secondary">★ 5.0 (2)</span>
-                  </div>
-                </div>
+              <span class="text-xs text-secondary">4/5 Safety Sessions</span>
+              <div class="prog-bar-wrap m-t-8">
+                <div class="prog-fill" data-target-width="80" style="width:80%"></div>
               </div>
-              <button class="btn-black-small full-w m-t-12" data-action="request-tool">Request Tool</button>
             </div>
-
           </div>
-        </div>
-        <div class="bottom-spacer"></div>
-      </section>
 
-      <!-- SCREEN: LIVE -->
-      <section id="screen-live" class="screen">
-        <div class="m-x-20 m-t-20 flex-between">
-           <div class="pill-sm outline-blue flex-row">
-             <span class="dot-blue"></span>
-             <span class="text-xs font-bold" style="line-height:1;">LIVE CHECK-IN</span>
-           </div>
-           <span class="font-inktrap text-xs font-bold tracking-widest text-secondary">ID:SK-99</span>
-        </div>
-
-        <div class="header-aww text-black m-t-16">
-          <h1 class="font-inktrap hero-title" style="font-size:36px; line-height:1.1;">GAGAN'S<br>WORKSHOP</h1>
-        </div>
-
-        <div class="m-x-20 m-t-20 text-center">
-          <div class="qr-box-aww">
-             <!-- Real functional QR code generator proxy -->
-             <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=SKILLDD-SK-9942" alt="QR Code" class="qr-img">
-             <div class="scan-line"></div>
+          <div class="m-x-20 m-t-32 m-b-24">
+            <h3 class="font-inktrap text-md m-b-16 text-secondary">HONOR BADGES</h3>
+            <div class="sleek-badges">
+              <div class="badge-row-sleek">
+                <div class="badge-icon-sq"><svg width="20" height="20" fill="none" stroke="#00AAFF" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg></div>
+                <div style="flex:1;">
+                  <span class="text-sm font-bold m-b-4" style="display:block;">Safety Pro</span>
+                  <span class="text-xs text-secondary">Verified by 2 mentors</span>
+                </div>
+              </div>
+              <div class="badge-row-sleek">
+                <div class="badge-icon-sq"><svg width="20" height="20" fill="none" stroke="#FF4DA6" stroke-width="2">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                  </svg></div>
+                <div style="flex:1;">
+                  <span class="text-sm font-bold m-b-4" style="display:block;">Craft Hero</span>
+                  <span class="text-xs text-secondary">Upcycled >50kg</span>
+                </div>
+              </div>
+              <div class="badge-row-sleek">
+                <div class="badge-icon-sq"><svg width="20" height="20" fill="none" stroke="#4A5500" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg></div>
+                <div style="flex:1;">
+                  <span class="text-sm font-bold m-b-4" style="display:block;">Legacy Bridge</span>
+                  <span class="text-xs text-secondary">Top community contributor</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <h2 class="font-inktrap title-aww m-t-20">WAITING FOR HANDSHAKE</h2>
-          <p class="text-sm text-secondary m-t-8">Present this code at the front desk</p>
-        </div>
+          <div class="bottom-spacer"></div>
+        </section>
 
-        <div class="m-x-20 m-t-32">
-          <h3 class="font-inktrap text-sm text-secondary m-b-16">PROTOCOL CHECKLIST</h3>
+        <!-- SCREEN: MARKET -->
+        <section id="screen-market" class="screen">
+          <div class="header-aww text-black">
+            <h1 class="font-inktrap hero-title">LOCAL<br>MARKET.</h1>
+            <p class="text-sm text-secondary m-t-8" id="market-subtitle">Crafted locally. Sold by neighbors.</p>
+          </div>
+
+          <h3 class="font-inktrap text-md m-b-16 m-x-20 text-black">
+            <span style="background:var(--accent-yellow); padding: 4px 10px; border-radius: 8px;">TRENDING NOW</span>
+          </h3>
           
-          <div class="check-list-aww">
-            <label class="check-row-aww" data-check-item="1">
-              <div class="check-box checked"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
-              <div class="check-text">Wear SKILLDD Safety Apron and Eye Protection.</div>
-            </label>
-            <label class="check-row-aww disabled" data-check-item="2">
-              <div class="check-box"></div>
-              <div class="check-text">
-                Complete Visual Tool Inspection.
-                <div class="badge-mini pink m-t-4">MENTOR REQ.</div>
+          <div class="normal-grid-aww m-x-20 m-t-16">
+            
+            <div class="card-aww" data-action="expand-card" data-desc="A beautifully restored coffee table made entirely from reclaimed wood. Treated with natural oils to preserve the organic grain. Perfect for a cozy living room setup.">
+              <div class="card-image-box" style="height: auto;">
+                <img src="https://loremflickr.com/500/500/coffeetable,wood/all" alt="Coffee Table" style="width:100%; aspect-ratio:4/3; object-fit:cover;" />
               </div>
-            </label>
-            <label class="check-row-aww" data-check-item="3">
-               <div class="check-box checked"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
-               <div class="check-text">
-                 Confirm Scrap Material Selection.
-                 <div class="badge-mini green m-t-4">VOUCHER 1X</div>
-               </div>
-            </label>
+              <div class="card-body-aww" style="padding:16px;">
+                <h2 class="font-inktrap title-aww text-md">Recycled Table</h2>
+                <span class="font-inktrap font-bold text-md text-blue">₹4,500</span>
+                <p class="text-xs text-secondary margin-top-4">By Ankit K.</p>
+                <button class="btn-blue-huge" style="padding: 12px; font-size:12px; margin-top:12px;" data-action="reserve-item">Reserve</button>
+              </div>
+            </div>
+
+            <div class="card-aww" data-action="expand-card" data-desc="Hand-thrown ceramic pot with a unique ash glaze finish. Each piece is fired locally and bears subtle variations. Ideal for medium-sized indoor plants or as a standalone decor piece.">
+              <div class="card-image-box" style="height: auto;">
+                <img src="https://loremflickr.com/500/300/ceramic,plantpot/all" alt="Plant Pot" style="width:100%; aspect-ratio:4/3; object-fit:cover;" />
+              </div>
+              <div class="card-body-aww" style="padding:16px;">
+                <h2 class="font-inktrap title-aww text-md">Ceramic Pot</h2>
+                <span class="font-inktrap font-bold text-md text-blue">₹850</span>
+                <p class="text-xs text-secondary margin-top-4">By Priya M.</p>
+                <button class="btn-blue-huge" style="padding: 12px; font-size:12px; margin-top:12px;" data-action="reserve-item">Reserve</button>
+              </div>
+            </div>
+
+            <div class="card-aww" data-action="expand-card" data-desc="Customizable wall shelf constructed from upcycled pallet wood and industrial piping. Sturdy enough for books and elegant enough for displaying art. Requires basic mounting.">
+              <div class="card-image-box" style="height: auto;">
+                <img src="https://loremflickr.com/500/600/wallshelf,wood/all" alt="Shelf" style="width:100%; aspect-ratio:4/3; object-fit:cover;" />
+              </div>
+              <div class="card-body-aww" style="padding:16px;">
+                <h2 class="font-inktrap title-aww text-md">Shelf Unit</h2>
+                <span class="font-inktrap font-bold text-md text-blue">₹2,200</span>
+                <p class="text-xs text-secondary margin-top-4">By Rahul S.</p>
+                <button class="btn-blue-huge outline" style="padding: 12px; font-size:12px; margin-top:12px;" data-action="commission-item">Commission</button>
+              </div>
+            </div>
+
+            <!-- New Items -->
+            <div class="card-aww" data-action="expand-card" data-desc="Durable handcrafted tote bag made from responsibly sourced leather. Features robust hand-stitching and brass hardware, aging gracefully with daily use to develop a rich patina.">
+              <div class="card-image-box" style="height: auto;">
+                <img src="https://loremflickr.com/500/400/leather,bag/all" alt="Bag" style="width:100%; aspect-ratio:4/3; object-fit:cover;" />
+              </div>
+              <div class="card-body-aww" style="padding:16px;">
+                <h2 class="font-inktrap title-aww text-md">Leather Tote</h2>
+                <span class="font-inktrap font-bold text-md text-blue">₹3,400</span>
+                <p class="text-xs text-secondary margin-top-4">By Sunita V.</p>
+                <button class="btn-blue-huge" style="padding: 12px; font-size:12px; margin-top:12px;" data-action="reserve-item">Reserve</button>
+              </div>
+            </div>
+
+            <div class="card-aww" data-action="expand-card" data-desc="A striking table lamp fashioned from discarded industrial gauges and pipes, featuring a warm Edison bulb. Casts a cozy, ambient glow, perfect for reading nooks or nightstands.">
+              <div class="card-image-box" style="height: auto;">
+                <img src="https://loremflickr.com/500/600/lamp,upcycle/all" alt="Lamp" style="width:100%; aspect-ratio:4/3; object-fit:cover;" />
+              </div>
+              <div class="card-body-aww" style="padding:16px;">
+                <h2 class="font-inktrap title-aww text-md">Edison Lamp</h2>
+                <span class="font-inktrap font-bold text-md text-blue">₹1,900</span>
+                <p class="text-xs text-secondary margin-top-4">By Kiran P.</p>
+                <button class="btn-blue-huge outline" style="padding: 12px; font-size:12px; margin-top:12px;" data-action="commission-item">Commission</button>
+              </div>
+            </div>
+
+            <div class="card-aww" data-action="expand-card" data-desc="Intricately woven rug crafted from recycled textile scraps. This zero-waste creation adds a vibrant pop of color and rich texture to any small space or entryway.">
+              <div class="card-image-box" style="height: auto;">
+                <img src="https://loremflickr.com/500/300/rug,woven/all" alt="Rug" style="width:100%; aspect-ratio:4/3; object-fit:cover;" />
+              </div>
+              <div class="card-body-aww" style="padding:16px;">
+                <h2 class="font-inktrap title-aww text-md">Woven Rug</h2>
+                <span class="font-inktrap font-bold text-md text-blue">₹1,200</span>
+                <p class="text-xs text-secondary margin-top-4">By Mrs. Roy</p>
+                <button class="btn-blue-huge" style="padding: 12px; font-size:12px; margin-top:12px;" data-action="reserve-item">Reserve</button>
+              </div>
+            </div>
+
+            <div class="card-aww" data-action="expand-card" data-desc="Heavy, solid teak wood bookends carved entirely by hand. Featuring subtle geometric patterns inspired by local heritage, designed to reliably support your most treasured hardcovers.">
+              <div class="card-image-box" style="height: auto;">
+                <img src="https://loremflickr.com/500/500/bookends,carved/all" alt="Bookends" style="width:100%; aspect-ratio:4/3; object-fit:cover;" />
+              </div>
+              <div class="card-body-aww" style="padding:16px;">
+                <h2 class="font-inktrap title-aww text-md">Teak Bookends</h2>
+                <span class="font-inktrap font-bold text-md text-blue">₹800</span>
+                <p class="text-xs text-secondary margin-top-4">By Master Saxena</p>
+                <button class="btn-blue-huge" style="padding: 12px; font-size:12px; margin-top:12px;" data-action="reserve-item">Reserve</button>
+              </div>
+            </div>
+
+            <div class="card-aww" data-action="expand-card" data-desc="A beautifully rescued mid-century wall clock. Meticulously restored inner mechanicals combined with a delicately refinished brass casing ensure reliable timekeeping with vintage charm.">
+              <div class="card-image-box" style="height: auto;">
+                <img src="https://loremflickr.com/500/600/clock,vintage/all" alt="Clock" style="width:100%; aspect-ratio:4/3; object-fit:cover;" />
+              </div>
+              <div class="card-body-aww" style="padding:16px;">
+                <h2 class="font-inktrap title-aww text-md">Restored Clock</h2>
+                <span class="font-inktrap font-bold text-md text-blue">₹5,000</span>
+                <p class="text-xs text-secondary margin-top-4">By Aman J.</p>
+                <button class="btn-blue-huge outline" style="padding: 12px; font-size:12px; margin-top:12px;" data-action="commission-item">Commission</button>
+              </div>
+            </div>
+          </div>
+          <div class="bottom-spacer"></div>
+        </section>
+
+        <!-- SCREEN: TOOLS -->
+        <section id="screen-tools" class="screen">
+          <div class="header-aww text-black flex-between align-start" style="align-items: flex-start;">
+            <div>
+              <h1 class="font-inktrap hero-title">TOOL<br>LIBRARY.</h1>
+              <p class="text-sm text-secondary m-t-8">Rent securely from trusted neighbors.</p>
+            </div>
+            <div class="view-toggle-pill" id="tool-view-toggle" style="margin-top: 4px;">
+               <span>List</span>
+               <span>Grid</span>
+            </div>
+          </div>
+
+          <div class="m-x-20 m-t-8">
+            <div class="map-card-minimal"
+              style="height:180px; border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; background: url('https://loremflickr.com/600/200/map,streets/all') center/cover;">
+              <div class="map-badge-aww" id="tools-nearby-badge"
+                style="background:#000; color:#FFF; padding:12px 24px; border-radius:100px; display:flex; align-items:center; gap:8px; font-weight:bold; font-size:14px;">
+                <span class="dot-blue"></span> <span id="tools-nearby-count">12</span> Tools near you</div>
+            </div>
+          </div>
+
+          <div class="m-x-20 m-t-24 m-b-24">
+            <div id="tool-list" class="tool-list flex-col" style="gap: 16px;">
+
+              <!-- Tool 1 -->
+              <div class="tool-card-soft">
+                <div class="flex-row" style="align-items: flex-start; gap: 16px;">
+                  <div class="tool-img-box">
+                    <img src="https://loremflickr.com/150/150/drill,bosch/all" alt="Drill"
+                      style="width:100%; height:100%; object-fit:cover;">
+                  </div>
+                  <div class="tool-data" style="flex:1;">
+                    <h2 class="font-inktrap text-md">Bosch GSB 600</h2>
+                    <p class="text-xs text-secondary">Vikram S. (Sec 4)</p>
+                    <div class="flex-between m-t-6">
+                      <span class="font-inktrap font-bold text-md">₹200 <span
+                          class="text-xs font-normal text-secondary">/ day</span></span>
+                      <span class="text-xs font-bold text-secondary">★ 5.0 (14)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="security-banner-light m-t-12">Insurance included. Level 1 Verified Users.</div>
+                <button class="btn-black-small full-w m-t-12" data-action="request-tool">Request Tool</button>
+              </div>
+
+              <!-- Tool 2 -->
+              <div class="tool-card-soft">
+                <div class="flex-row" style="align-items: flex-start; gap: 16px;">
+                  <div class="tool-img-box">
+                    <img src="https://loremflickr.com/150/150/drumkit,yamaha/all" alt="Drum Kit"
+                      style="width:100%; height:100%; object-fit:cover;">
+                  </div>
+                  <div class="tool-data" style="flex:1;">
+                    <h2 class="font-inktrap text-md">Yamaha Drum Kit</h2>
+                    <p class="text-xs text-secondary">Arjun R. (Sec 1)</p>
+                    <div class="flex-between m-t-6">
+                      <span class="font-inktrap font-bold text-md">₹500 <span
+                          class="text-xs font-normal text-secondary">/ day</span></span>
+                      <span class="text-xs font-bold text-secondary">★ 4.8 (8)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="security-banner-light m-t-12">Pick-up only via Mini-truck.</div>
+                <button class="btn-black-small full-w m-t-12" data-action="request-tool">Request Tool</button>
+              </div>
+
+              <!-- Tool 3 -->
+              <div class="tool-card-soft">
+                <div class="flex-row" style="align-items: flex-start; gap: 16px;">
+                  <div class="tool-img-box">
+                    <img src="https://loremflickr.com/150/150/camera,gimbal/all" alt="Camera"
+                      style="width:100%; height:100%; object-fit:cover;">
+                  </div>
+                  <div class="tool-data" style="flex:1;">
+                    <h2 class="font-inktrap text-md">DJI Ronin Gimbal</h2>
+                    <p class="text-xs text-secondary">Sunil K. (K-Block)</p>
+                    <div class="flex-between m-t-6">
+                      <span class="font-inktrap font-bold text-md">₹350 <span
+                          class="text-xs font-normal text-secondary">/ day</span></span>
+                      <span class="text-xs font-bold text-secondary">★ 4.9 (23)</span>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn-black-small full-w m-t-12" data-action="request-tool">Request Tool</button>
+              </div>
+
+              <!-- Tool 5 -->
+              <div class="tool-card-soft">
+                <div class="flex-row" style="align-items: flex-start; gap: 16px;">
+                  <div class="tool-img-box">
+                    <img src="https://loremflickr.com/150/150/microphone,studio/all" alt="Mic"
+                      style="width:100%; height:100%; object-fit:cover;">
+                  </div>
+                  <div class="tool-data" style="flex:1;">
+                    <h2 class="font-inktrap text-md">Rode NT1-A Mic</h2>
+                    <p class="text-xs text-secondary">Kabir S. (Sec 9)</p>
+                    <div class="flex-between m-t-6">
+                      <span class="font-inktrap font-bold text-md">₹250 <span
+                          class="text-xs font-normal text-secondary">/ day</span></span>
+                      <span class="text-xs font-bold text-secondary">★ 5.0 (2)</span>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn-black-small full-w m-t-12" data-action="request-tool">Request Tool</button>
+              </div>
+
+            </div>
+          </div>
+          <div class="bottom-spacer"></div>
+        </section>
+
+        <!-- SCREEN: LIVE -->
+        <section id="screen-live" class="screen">
+          <div class="m-x-20 m-t-20 flex-between">
+            <div class="pill-sm outline-blue flex-row">
+              <span class="dot-blue"></span>
+              <span class="text-xs font-bold" style="line-height:1;">LIVE CHECK-IN</span>
+            </div>
+            <span class="font-inktrap text-xs font-bold tracking-widest text-secondary">ID:SK-99</span>
+          </div>
+
+          <div class="header-aww text-black m-t-16">
+            <h1 class="font-inktrap hero-title" style="font-size:36px; line-height:1.1;">GAGAN'S<br>WORKSHOP</h1>
+          </div>
+
+          <div class="m-x-20 m-t-20 text-center">
+            <div class="qr-box-aww">
+              <!-- Real functional QR code generator proxy -->
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=SKILLDD-SK-9942" alt="QR Code"
+                class="qr-img">
+              <div class="scan-line"></div>
+            </div>
+            <h2 class="font-inktrap title-aww m-t-20">WAITING FOR HANDSHAKE</h2>
+            <p class="text-sm text-secondary m-t-8">Present this code at the front desk</p>
+          </div>
+
+          <div class="m-x-20 m-t-32">
+            <h3 class="font-inktrap text-sm text-secondary m-b-16">PROTOCOL CHECKLIST</h3>
+
+            <div class="check-list-aww">
+              <label class="check-row-aww" data-check-item="1">
+                <div class="check-box checked"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFF"
+                    stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg></div>
+                <div class="check-text">Wear SKILLDD Safety Apron and Eye Protection.</div>
+              </label>
+              <label class="check-row-aww disabled" data-check-item="2">
+                <div class="check-box"></div>
+                <div class="check-text">
+                  Complete Visual Tool Inspection.
+                  <div class="badge-mini pink m-t-4">MENTOR REQ.</div>
+                </div>
+              </label>
+              <label class="check-row-aww" data-check-item="3">
+                <div class="check-box checked"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFF"
+                    stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg></div>
+                <div class="check-text">
+                  Confirm Scrap Material Selection.
+                  <div class="badge-mini green m-t-4">VOUCHER 1X</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="support-card m-x-20 m-t-32">
+            <img src="https://i.pravatar.cc/100?img=9" class="avatar-sm" alt="Sneha">
+            <div style="flex:1;">
+              <span class="font-inktrap font-bold text-sm" style="display:block;">MENTOR SNEHA</span>
+              <span class="text-xs text-secondary">Tap for tactile assistance.</span>
+            </div>
+            <button class="call-icon-btn" data-action="call-mentor"><svg width="18" height="18" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.79 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg></button>
+          </div>
+          <div class="bottom-spacer"></div>
+        </section>
+
+      </main>
+
+      <!-- Global Card Expansion Modal moved inside app-container -->
+      <div id="card-overlay" class="card-overlay-container">
+        <div class="card-overlay-content">
+          <div class="card-overlay-header" style="position:relative;">
+            <button class="overlay-close-btn" id="overlay-close-btn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </button>
+            <img id="overlay-img" src="" alt="Cover" />
+          </div>
+          <div class="overlay-body">
+            <div class="badge-aww pink" id="overlay-badge" style="position:relative; top:auto; right:auto; display:inline-block; margin-bottom:12px;">SLOTS OPEN</div>
+            <h2 class="font-inktrap text-lg" id="overlay-title" style="margin-bottom:8px;">Class Title</h2>
+            <div class="flex-between m-b-16">
+              <span class="text-secondary text-sm" id="overlay-mentor">Instructor</span>
+              <span class="text-xs font-bold" id="overlay-rating" style="color:#000;">★ 4.9</span>
+            </div>
+            <p id="overlay-desc" class="text-sm font-medium" style="line-height:1.6; color:#555;">Detailed information about this specific listing. See reviews and verified badges before you commit.</p>
+            <div class="divider-aww m-y-20"></div>
+            <div class="flex-between align-bottom">
+               <div class="price-aww" id="overlay-price">₹1,500 <span class="sub-lbl">Inc. Scrap Bundle</span></div>
+               <div id="overlay-cta-slot"></div>
+            </div>
           </div>
         </div>
-
-        <div class="support-card m-x-20 m-t-32">
-           <img src="https://i.pravatar.cc/100?img=9" class="avatar-sm" alt="Sneha">
-           <div style="flex:1;">
-             <span class="font-inktrap font-bold text-sm" style="display:block;">MENTOR SNEHA</span>
-             <span class="text-xs text-secondary">Tap for tactile assistance.</span>
-           </div>
-           <button class="call-icon-btn" data-action="call-mentor"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.79 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></button>
-        </div>
-        <div class="bottom-spacer"></div>
-      </section>
-
-    </main>
-  </div>
-
-  <!-- The Black Bottom Navigation -->
-  <nav class="bottom-nav-black">
-    <div class="os-pill"></div>
-    <button class="nav-btn-aww active" data-target="screen-feed">
-      <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div>
-      <span class="nav-lbl">Feed</span>
-    </button>
-    <button class="nav-btn-aww" data-target="screen-live">
-      <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
-      <span class="nav-lbl">Live</span>
-    </button>
-    <button class="nav-btn-aww" data-target="screen-tools">
-      <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div>
-      <span class="nav-lbl">Tools</span>
-    </button>
-    <button class="nav-btn-aww" data-target="screen-market">
-      <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div>
-      <span class="nav-lbl">Market</span>
-    </button>
-    <button class="nav-btn-aww" data-target="screen-passport">
-      <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
-      <span class="nav-lbl">Profile</span>
-    </button>
-  </nav>
-  
-  <!-- Global Card Expansion Modal -->
-  <div id="card-overlay" class="card-overlay-container">
-    <div class="card-overlay-content">
-      <div class="card-overlay-header">
-        <button class="overlay-close-btn" id="overlay-close-btn"><svg width="20" height="20" fill="none" stroke="#111" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
-        <img id="overlay-img" src="" alt="Cover" />
       </div>
-      <div class="overlay-body">
-        <div class="badge-aww pink" id="overlay-badge" style="position:relative; top:auto; right:auto; display:inline-block; margin-bottom:12px;">SLOTS OPEN</div>
-        <h2 class="font-inktrap text-lg" id="overlay-title" style="margin-bottom:8px;">Class Title</h2>
-        <div class="flex-between m-b-16">
-          <span class="text-secondary text-sm" id="overlay-mentor">Instructor</span>
-          <span class="text-xs font-bold" id="overlay-rating" style="color:#000;">★ 4.9</span>
-        </div>
-        <p class="text-sm font-medium" style="line-height:1.6; color:#555;">Learn the essentials from an experienced mentor in the community. High-quality scrap materials provided.</p>
-        <div class="divider-aww m-y-20"></div>
-        <div class="flex-between">
-           <div class="price-aww" id="overlay-price">₹1,500 <span class="sub-lbl">Inc. Scrap Bundle</span></div>
-        </div>
-      </div>
-      <div class="overlay-actions flex-between">
-         <button class="btn-black-huge outline" style="flex:1" onclick="window.navigateToScreen('screen-expert'); document.getElementById('card-overlay').classList.remove('active');">View Expert</button>
-         <button class="btn-black-huge" style="flex:1">Book Class</button>
-      </div>
+
     </div>
-  </div>
 
-</div>
-<script type="module" src="/src/main.js"></script>
+    <!-- The Black Bottom Navigation -->
+    <nav class="bottom-nav-black">
+      <div class="os-pill"></div>
+      <button class="nav-btn-aww active" data-target="screen-feed">
+        <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg></div>
+        <span class="nav-lbl">Feed</span>
+      </button>
+      <button class="nav-btn-aww" data-target="screen-live">
+        <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg></div>
+        <span class="nav-lbl">Live</span>
+      </button>
+      <button class="nav-btn-aww" data-target="screen-tools">
+        <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path
+              d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+            </path>
+          </svg></div>
+        <span class="nav-lbl">Tools</span>
+      </button>
+      <button class="nav-btn-aww" data-target="screen-market">
+        <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg></div>
+        <span class="nav-lbl">Market</span>
+      </button>
+      <button class="nav-btn-aww" data-target="screen-passport">
+        <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg></div>
+        <span class="nav-lbl">Profile</span>
+      </button>
+    </nav>
+
+  </div>
+  
+  <script type="module" src="/src/main.js"></script>
 </body>
+
 </html>
