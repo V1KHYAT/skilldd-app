@@ -451,10 +451,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  document.querySelectorAll('.category-scroll .pill-aww').forEach((pill) => {
+  document.querySelectorAll('.category-scroll .category-pill').forEach((pill) => {
     pill.addEventListener('click', () => {
-      document.querySelectorAll('.category-scroll .pill-aww').forEach((item) => item.classList.remove('blue'));
-      pill.classList.add('blue');
+      document.querySelectorAll('.category-scroll .category-pill').forEach((item) => item.classList.remove('active'));
+      pill.classList.add('active');
       showToast(`Filter: ${pill.textContent.trim()}`);
     });
   });
