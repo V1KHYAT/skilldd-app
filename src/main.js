@@ -48,16 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const toolsCatalog = [
     { name: 'Bosch GSB 600 Drill', owner: 'Vikram S.', area: 'Sec 4', price: 200, rating: '5.0 (14)', image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=320&q=80', note: 'Insurance included. Level 1 Verified Users.' },
     { name: 'Makita Circular Saw', owner: 'Aman K.', area: 'Sec 2', price: 320, rating: '4.9 (18)', image: 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=320&q=80', note: 'Blade guard verified today.' },
-    { name: 'Dewalt Angle Grinder', owner: 'Mihir P.', area: 'Sec 5', price: 260, rating: '4.8 (11)', image: 'https://images.unsplash.com/photo-1581147036324-c1c7a74e6588?auto=format&fit=crop&w=320&q=80', note: 'Protective gloves included.' },
     { name: 'Black+Decker Jigsaw', owner: 'Aditi N.', area: 'Sec 9', price: 240, rating: '4.7 (9)', image: 'https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?auto=format&fit=crop&w=320&q=80', note: 'Fresh blades added.' },
     { name: 'Yamaha Drum Kit', owner: 'Arjun R.', area: 'Sec 1', price: 500, rating: '4.8 (8)', image: 'https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=320&q=80', note: 'Pick-up only via mini-truck.' },
     { name: 'DJI Ronin Gimbal', owner: 'Sunil K.', area: 'K-Block', price: 350, rating: '4.9 (23)', image: 'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=320&q=80', note: 'Calibration done before handover.' },
-    { name: 'Singer Sewing Machine', owner: 'Aarti P.', area: 'Sec 4', price: 150, rating: '4.5 (4)', image: 'https://images.unsplash.com/photo-1591195853838-11db59a44f6b?auto=format&fit=crop&w=320&q=80', note: 'Thread starter kit included.' },
     { name: 'Rode NT1-A Mic', owner: 'Kabir S.', area: 'Sec 9', price: 250, rating: '5.0 (2)', image: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=320&q=80', note: 'Shock mount included.' },
-    { name: 'Ryobi Heat Gun', owner: 'Dhanush T.', area: 'Sec 3', price: 170, rating: '4.6 (6)', image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=320&q=80', note: 'Nozzle set included.' },
-    { name: 'Stanley Tool Chest', owner: 'Mona B.', area: 'Sec 7', price: 280, rating: '4.9 (12)', image: 'https://images.unsplash.com/photo-1582582494700-6f0b0db0f9f7?auto=format&fit=crop&w=320&q=80', note: 'Inventory checked after each rental.' },
-    { name: 'Wagner Paint Sprayer', owner: 'Rehan U.', area: 'Sec 11', price: 300, rating: '4.7 (5)', image: 'https://images.unsplash.com/photo-1581578026170-5e9c8f31f42b?auto=format&fit=crop&w=320&q=80', note: 'Cleaning kit included.' },
-    { name: 'Fluke Multimeter', owner: 'Jeni L.', area: 'Sec 6', price: 180, rating: '4.9 (10)', image: 'https://images.unsplash.com/photo-1581091215367-59ab6dcef0c1?auto=format&fit=crop&w=320&q=80', note: 'Battery pre-checked.' }
+    { name: 'Ryobi Heat Gun', owner: 'Dhanush T.', area: 'Sec 3', price: 170, rating: '4.6 (6)', image: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=320&q=80', note: 'Nozzle set included.' }
   ];
 
   const appState = {
