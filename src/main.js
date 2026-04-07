@@ -22,6 +22,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const liveTitle = document.querySelector('#screen-live .header-aww h1');
   const marketPriceEls = document.querySelectorAll('#screen-market .font-inktrap.font-bold.text-lg.text-blue');
   const pickupStrongEls = document.querySelectorAll('#screen-market .pickup-alert strong');
+  
+  // New Elements for Layout and Search
+  const toolSearchInput = document.getElementById('tool-search-input');
+  const viewToggleBtn = document.getElementById('view-toggle-btn');
+  
+  // Card Expansion Elements
+  const cardOverlay = document.getElementById('card-overlay');
+  const closeOverlayBtn = document.getElementById('overlay-close-btn');
+  const overlayTitle = document.getElementById('overlay-title');
+  const overlayMentor = document.getElementById('overlay-mentor');
+  const overlayPrice = document.getElementById('overlay-price');
+  const overlayImg = document.getElementById('overlay-img');
+  const overlayBadge = document.getElementById('overlay-badge');
+  const overlayRating = document.getElementById('overlay-rating');
+
   const toastStack = document.createElement('div');
   toastStack.className = 'toast-stack';
   document.body.appendChild(toastStack);
@@ -60,7 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
     requestedTools: new Set(),
     reservedItems: new Set(),
     joinedClasses: new Set(),
-    checklist: { 1: true, 2: false, 3: true }
+    checklist: { 1: true, 2: false, 3: true },
+    searchQuery: '',
+    isGridView: true
   };
 
   const getLocation = () => locations.find((item) => item.id === appState.locationId) || locations[0];
@@ -124,8 +141,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!toolList) return;
     const activeLocation = getLocation();
     toolList.innerHTML = '';
+    
+    // Apply grid/list view class
+    if(appState.isGridView) {
+      toolList.classList.add('grid-view');
+      toolList.classList.remove('flex-col');
+    } else {
+      toolList.classList.remove('grid-view');
+      toolList.classList.add('flex-col');
+    }
 
-    toolsCatalog.forEach((tool, index) => {
+    const filteredTools = toolsCatalog.filter(t => t.name.toLowerCase().includes(appState.searchQuery.toLowerCase()));
+
+    if(filteredTools.length === 0) {
+      toolList.innerHTML = `<p class="m-t-20 text-center text-sm text-secondary" style="grid-column: 1 / -1;">No tools found matching "${appState.searchQuery}"</p>`;
+      return;
+    }
+
+    filteredTools.forEach((tool, index) => {
       const id = `tool-${index + 1}`;
       const isRequested = appState.requestedTools.has(id);
       const price = Math.round(tool.price * activeLocation.multiplier);
@@ -133,11 +166,11 @@ document.addEventListener('DOMContentLoaded', () => {
       card.className = 'tool-card-soft anim-reveal';
       card.style.animationDelay = `${index * 30}ms`;
       card.innerHTML = `
-        <div class="flex-row" style="align-items: flex-start; gap: 16px;">
+        <div class="flex-row" style="align-items: flex-start; ${!appState.isGridView ? 'gap: 16px;' : ''}">
           <div class="tool-img-box">
             <img src="${tool.image}" alt="${tool.name}" style="width:100%; height:100%; object-fit:cover;">
           </div>
-          <div class="tool-data" style="flex:1;">
+          <div class="tool-data" style="flex:1; width: 100%;">
             <h2 class="font-inktrap text-md">${tool.name}</h2>
             <p class="text-xs text-secondary">${tool.owner} (${tool.area})</p>
             <div class="flex-between m-t-6">
@@ -146,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
         </div>
-        <div class="security-banner-light m-t-12">${tool.note} • ${activeLocation.short}</div>
+        ${!appState.isGridView ? `<div class="security-banner-light m-t-12">${tool.note} • ${activeLocation.short}</div>` : ''}
         <button class="btn-black-small full-w m-t-12" data-action="request-tool" data-tool-id="${id}">${isRequested ? 'Requested' : 'Request Tool'}</button>
       `;
       toolList.appendChild(card);
@@ -314,6 +347,37 @@ document.addEventListener('DOMContentLoaded', () => {
         button.style.transform = '';
       }, 140);
       showToast('Calling Mentor Sneha...');
+      return;
+    }
+
+    if (action === 'expand-card' && cardOverlay) {
+      const card = button.closest('.card-aww');
+      if (!card) return;
+
+      const title = card.querySelector('h2.title-aww')?.textContent || 'Details';
+      const mentor = card.querySelector('.text-secondary.text-sm')?.textContent || '';
+      const price = card.querySelector('.price-aww')?.innerHTML || '';
+      const imgSrc = card.querySelector('img')?.src || '';
+      const badge = card.querySelector('.badge-aww');
+      const rating = card.querySelector('.text-xs.font-bold')?.textContent || '';
+
+      if (overlayTitle) overlayTitle.textContent = title;
+      if (overlayMentor) overlayMentor.textContent = mentor;
+      if (overlayPrice) overlayPrice.innerHTML = price;
+      if (overlayImg) overlayImg.src = imgSrc;
+      if (overlayRating) overlayRating.textContent = rating;
+      
+      if (overlayBadge) {
+         if (badge) {
+           overlayBadge.className = badge.className;
+           overlayBadge.textContent = badge.textContent;
+           overlayBadge.style.display = 'inline-block';
+         } else {
+           overlayBadge.style.display = 'none';
+         }
+      }
+
+      cardOverlay.classList.add('active');
     }
   };
 
@@ -457,11 +521,40 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle N key for super long preview
   document.addEventListener('keydown', (e) => {
     if (e.key === 'n' || e.key === 'N') {
+      if (e.target.tagName === 'INPUT') return;
       if (appContainer) {
         appContainer.classList.toggle('super-long');
       }
     }
   });
+
+  // Tools Setup Event Listeners
+  if (toolSearchInput) {
+    toolSearchInput.addEventListener('input', (e) => {
+      appState.searchQuery = e.target.value;
+      renderTools();
+    });
+  }
+
+  if (viewToggleBtn) {
+    viewToggleBtn.addEventListener('click', () => {
+      appState.isGridView = !appState.isGridView;
+      if (appState.isGridView) {
+        viewToggleBtn.classList.add('active-grid');
+        viewToggleBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="grid-icon" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>';
+      } else {
+        viewToggleBtn.classList.remove('active-grid');
+        viewToggleBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="list-icon" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>';
+      }
+      renderTools();
+    });
+  }
+
+  if (closeOverlayBtn && cardOverlay) {
+    closeOverlayBtn.addEventListener('click', () => {
+      cardOverlay.classList.remove('active');
+    });
+  }
 
   updateClock();
   setInterval(updateClock, 1000);

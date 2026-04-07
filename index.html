@@ -36,7 +36,7 @@
           <h1 class="font-inktrap hero-title m-t-8" style="font-size:34px;">DISCOVER<br>THE GUILD.</h1>
         </div>
         
-        <div class="search-sticky-wrapper">
+        <div class="search-sticky-wrapper glass-header">
           <div class="search-neo m-x-20">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             <input type="text" placeholder="Find 450+ skills, tools & neighbors..." />
@@ -71,7 +71,7 @@
 
         <div class="cards-stack m-x-20" style="padding-bottom: 24px;">
           <!-- Card 1 -->
-          <div class="card-aww" onclick="window.navigateToScreen('screen-expert')">
+          <div class="card-aww" data-action="expand-card">
             <div class="card-image-box">
               <img src="https://loremflickr.com/600/400/carpentry,tools/all" alt="Joinery">
               <div class="badge-aww pink">ONLY 2 SLOTS</div>
@@ -91,7 +91,7 @@
           </div>
           
           <!-- Card 2 -->
-          <div class="card-aww m-t-20">
+          <div class="card-aww m-t-20" data-action="expand-card">
             <div class="card-image-box">
               <img src="https://loremflickr.com/600/400/powertools,drill/all" alt="Drill">
               <div class="badge-aww blue">TOMORROW</div>
@@ -111,7 +111,7 @@
           </div>
           
           <!-- Card 3 -->
-          <div class="card-aww m-t-20">
+          <div class="card-aww m-t-20" data-action="expand-card">
             <div class="card-image-box">
               <img src="https://loremflickr.com/600/400/pottery,clay/all" alt="Pottery">
             </div>
@@ -130,7 +130,7 @@
           </div>
 
           <!-- Card 4 -->
-          <div class="card-aww m-t-20">
+          <div class="card-aww m-t-20" data-action="expand-card">
             <div class="card-image-box">
               <img src="https://loremflickr.com/600/400/sewing,fabric/all" alt="Sewing">
             </div>
@@ -149,7 +149,7 @@
           </div>
 
           <!-- Card 5 -->
-          <div class="card-aww m-t-20">
+          <div class="card-aww m-t-20" data-action="expand-card">
             <div class="card-image-box">
               <img src="https://loremflickr.com/600/400/motorcycle,engine/all" alt="Motorcycle">
               <div class="badge-aww yellow" style="color:#000;">HOT!</div>
@@ -403,13 +403,22 @@
         </div>
 
         <div class="m-x-20 m-t-8">
-          <div class="map-card-minimal" style="height:180px; border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center;">
-             <div class="map-badge-aww" id="tools-nearby-badge" style="background:#000; color:#FFF; padding:12px 24px; border-radius:100px; display:flex; align-items:center; gap:8px; font-weight:bold; font-size:14px;"><span class="dot-blue"></span> <span id="tools-nearby-count">12</span> Tools near you</div>
+          <div class="map-card-minimal" style="height:140px; border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; background: url('https://loremflickr.com/600/200/map,streets/all') center/cover;">
+             <div class="map-badge-aww" id="tools-nearby-badge" style="background:rgba(0,0,0,0.8); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); color:#FFF; padding:12px 24px; border-radius:100px; display:flex; align-items:center; gap:8px; font-weight:bold; font-size:14px;"><span class="dot-blue"></span> <span id="tools-nearby-count">12</span> Tools near you</div>
           </div>
         </div>
 
-        <div class="m-x-20 m-t-24 m-b-24">
-          <div id="tool-list" class="tool-list flex-col" style="gap: 16px;">
+        <div class="tools-controls-glass m-x-20 m-t-16 flex-between">
+          <div style="flex:1; margin-right:12px;">
+            <input type="text" id="tool-search-input" class="search-input-sleek" placeholder="Search by name or category..." />
+          </div>
+          <button id="view-toggle-btn" class="view-toggle-btn active-grid">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="grid-icon" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          </button>
+        </div>
+
+        <div class="m-x-20 m-t-16 m-b-24">
+          <div id="tool-list" class="tool-list grid-view">
             
             <!-- Tool 1 -->
             <div class="tool-card-soft">
@@ -577,6 +586,33 @@
       <span class="nav-lbl">Profile</span>
     </button>
   </nav>
+  
+  <!-- Global Card Expansion Modal -->
+  <div id="card-overlay" class="card-overlay-container">
+    <div class="card-overlay-content">
+      <div class="card-overlay-header">
+        <button class="overlay-close-btn" id="overlay-close-btn"><svg width="20" height="20" fill="none" stroke="#111" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+        <img id="overlay-img" src="" alt="Cover" />
+      </div>
+      <div class="overlay-body">
+        <div class="badge-aww pink" id="overlay-badge" style="position:relative; top:auto; right:auto; display:inline-block; margin-bottom:12px;">SLOTS OPEN</div>
+        <h2 class="font-inktrap text-lg" id="overlay-title" style="margin-bottom:8px;">Class Title</h2>
+        <div class="flex-between m-b-16">
+          <span class="text-secondary text-sm" id="overlay-mentor">Instructor</span>
+          <span class="text-xs font-bold" id="overlay-rating" style="color:#000;">★ 4.9</span>
+        </div>
+        <p class="text-sm font-medium" style="line-height:1.6; color:#555;">Learn the essentials from an experienced mentor in the community. High-quality scrap materials provided.</p>
+        <div class="divider-aww m-y-20"></div>
+        <div class="flex-between">
+           <div class="price-aww" id="overlay-price">₹1,500 <span class="sub-lbl">Inc. Scrap Bundle</span></div>
+        </div>
+      </div>
+      <div class="overlay-actions flex-between">
+         <button class="btn-black-huge outline" style="flex:1" onclick="window.navigateToScreen('screen-expert'); document.getElementById('card-overlay').classList.remove('active');">View Expert</button>
+         <button class="btn-black-huge" style="flex:1">Book Class</button>
+      </div>
+    </div>
+  </div>
 
 </div>
 <script type="module" src="/src/main.js"></script>
