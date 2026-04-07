@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>SKILLDD Premium - Infrastructure Node</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/style.css">
+  <style>
+    :root {
+      --accent-pink: #FF4DA6;
+      --accent-dark: #121212;
+    }
+    .bottom-nav-black { background: var(--accent-dark); }
+    .bottom-nav-black .nav-btn-aww.active { color: var(--accent-pink); }
+    .bottom-nav-black .nav-btn-aww.active .icon-wrap { background: rgba(255, 77, 166, 0.2); color: var(--accent-pink); }
+    
+    .hero-title-pink {
+      background: linear-gradient(135deg, var(--accent-pink), #FF8552);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    @keyframes pulse-dot {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 166, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 77, 166, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 166, 0); }
+    }
+    .live-dot {
+      width: 12px; height: 12px;
+      background: var(--accent-pink);
+      border-radius: 50%;
+      position: absolute;
+      animation: pulse-dot 2s infinite;
+    }
+    .p-16 { padding: 16px; }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div class="app-container" style="background:#FFF;">
+    <div class="dynamic-island-sim">
+      <div class="cam-lens"></div>
+    </div>
+    
+    <div class="status-bar-sim">
+      <span class="time-aww" id="sys-time">9:41</span>
+      <div class="status-icons">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+      </div>
+    </div>
+
+    <!-- MAIN APP WRAPPER -->
+    <main id="app" class="flex-col" style="height:100%; overflow-y:auto; overflow-x:hidden; position:relative; scroll-behavior: smooth;">
+      
+      <!-- SCREEN: SPACE (DASHBOARD) -->
+      <section id="screen-owner-space" class="screen active" style="padding-top: 32px;">
+        <div class="m-x-20 flex-between">
+           <h1 class="font-inktrap hero-title hero-title-pink" style="font-size:32px;">SPACE<br>CONTROL.</h1>
+           <div><img src="https://i.pravatar.cc/100?img=12" style="width:40px; height:40px; border-radius: 20px; border:2px solid #FFF; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></div>
+        </div>
+
+        <div class="m-x-20 m-t-24">
+           <h3 class="font-inktrap text-md m-b-16 text-secondary">ZONE 3 LIVE MAP</h3>
+           <div class="map-simulation" style="position:relative; width:100%; height:200px; background:#111; border-radius:16px; overflow:hidden;">
+               <!-- Floorplan graphic overlay -->
+               <div style="position:absolute; inset:0; opacity:0.3; background-image: repeating-linear-gradient(0deg, transparent, transparent 19px, #333 20px), repeating-linear-gradient(90deg, transparent, transparent 19px, #333 20px); background-size: 20px 20px;"></div>
+               
+               <!-- Asset Nodes -->
+               <div style="position:absolute; top:20%; left:20%; width:60px; height:40px; border:2px solid #555; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:#888; font-size:10px;">SAW.A</div>
+               <div style="position:absolute; top:50%; right:15%; width:40px; height:60px; border:2px solid #555; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; color:#888; font-size:10px;">DRILL.B</div>
+
+               <!-- Live Occupancy Blips -->
+               <div class="live-dot" style="top:25%; left:25%; animation-delay:0s;"></div>
+               <div class="live-dot" style="top:20%; left:35%; animation-delay:0.5s;"></div>
+               <div class="live-dot" style="top:55%; right:22%; animation-delay:1.2s;"></div>
+               
+               <div style="position:absolute; bottom:12px; left:16px;">
+                  <span style="color:#FFF; font-weight:800; font-size:18px;">3 OF 8</span><br>
+                  <span style="color:#888; font-size:10px; text-transform:uppercase;">Capacity Used</span>
+               </div>
+           </div>
+        </div>
+
+        <div class="m-x-20 m-t-32 m-b-32">
+            <h3 class="font-inktrap text-md m-b-16 text-secondary">BOOKING APPROVALS</h3>
+            <div class="flex-col" style="gap:12px;">
+                 <div class="p-16 flex-col" style="background:#F9F9F9; border-radius:12px; border:1px solid #EAEAEA;">
+                    <div class="flex-between m-b-16">
+                       <div>
+                          <span class="font-bold text-sm">Master Saxena</span><br>
+                          <span class="text-xs text-secondary">Dovetail Joinery (Tomorrow, 14:00)</span>
+                       </div>
+                       <span class="pill-sm outline" style="color:var(--accent-pink); border-color:var(--accent-pink);">Pending</span>
+                    </div>
+                    <div class="flex-row" style="gap:12px;">
+                       <button class="btn-black-small full-w" style="background:var(--accent-pink);">Approve Space</button>
+                       <button class="btn-black-small" style="background:transparent; color:#888; border:1px solid #EAEAEA;">Deny</button>
+                    </div>
+                 </div>
+            </div>
+        </div>
+      </section>
+
+      <!-- SCREEN: TELEMETRY -->
+      <section id="screen-owner-telemetry" class="screen" style="padding-top: 32px; display:none;">
+         <div class="m-x-20 flex-between m-b-24">
+           <h1 class="font-inktrap hero-title" style="font-size:32px;">ASSET<br>LEDGER.</h1>
+         </div>
+         
+         <div class="m-x-20">
+             <div class="stats-aww m-b-24">
+               <div class="stat-neo outline" style="background:#FFF;">
+                 <span class="font-inktrap" style="font-size:28px;">2</span>
+                 <span class="stat-lbl">Premium Assets In Use</span>
+               </div>
+               <div class="stat-neo" style="background:var(--accent-pink); color:#FFF;">
+                 <span class="font-inktrap" style="font-size:28px; color:#FFF;">100%</span>
+                 <span class="stat-lbl" style="color:rgba(255,255,255,0.8);">Waivers Logged</span>
+               </div>
+             </div>
+             
+             <h3 class="font-inktrap text-md m-b-16 text-secondary">HARDWARE TELEMETRY</h3>
+             <div class="p-16 m-b-16 flex-between" style="background:#FFF; border:1px solid #EAEAEA; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.02);">
+                 <div class="flex-row" style="gap:12px;">
+                    <svg width="24" height="24" fill="none" stroke="var(--accent-pink)" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                    <div>
+                       <span class="font-bold text-sm">Makita Table Saw</span><br>
+                       <span class="text-xs text-secondary">Checked out by: Riya Sharma</span>
+                    </div>
+                 </div>
+                 <div style="text-align:right;">
+                    <span class="text-xs font-bold" style="color:#10B981;">Online</span><br>
+                    <span class="text-xs text-secondary">00:45:12</span>
+                 </div>
+             </div>
+             
+             <div class="p-16 m-b-32" style="background:#FFF; border:1px solid #EAEAea; border-radius:12px;">
+                 <h4 class="text-sm font-bold m-b-8">Damage / Wear Report</h4>
+                 <p class="text-xs text-secondary m-b-12">Capture hardware damage bridging directly to Mentor Escrow dispute streams.</p>
+                 <button class="btn-black-small full-w" style="background:#111;">Capture & File Dispute</button>
+             </div>
+         </div>
+      </section>
+
+      <!-- SCREEN: RETAIL -->
+      <section id="screen-owner-retail" class="screen" style="padding-top: 32px; display:none;">
+          <div class="m-x-20 m-b-24">
+             <h1 class="font-inktrap hero-title" style="font-size:32px;">RETAIL<br>VALUE LOOP.</h1>
+          </div>
+          
+          <div class="m-x-20 m-b-24">
+             <div class="p-20" style="background:#FFF; border:1px solid #EAEAEA; border-radius:16px;">
+                 <h3 class="font-inktrap text-md m-b-16 text-black">POST-SESSION PROMOS</h3>
+                 <p class="text-xs text-secondary m-b-16">Target learners who just used your demo equipment with timed push notifications.</p>
+                 
+                 <div class="flex-between m-b-12 p-12" style="background:#F9F9F9; border-radius:8px;">
+                    <div>
+                      <span class="text-sm font-bold">Table Saws (Category)</span><br>
+                      <span class="text-xs text-secondary">Offer: 15% OFF (Valid 2 Hrs)</span>
+                    </div>
+                    <label class="switch-aww">
+                       <input type="checkbox" checked>
+                       <span class="slider round"></span>
+                    </label>
+                 </div>
+                 
+                 <button class="btn-blue-huge full-w m-t-12" style="background:#111; padding:12px; font-size:12px;">Add New Targeting Rule</button>
+             </div>
+          </div>
+          
+          <div class="m-x-20 m-b-32">
+             <h3 class="font-inktrap text-md m-b-16 text-secondary">REVENUE SPLIT LEDGER</h3>
+             <div class="p-16" style="background:#FFF; border:1px solid #EAEAEA; border-radius:16px;">
+                 <span class="font-bold text-sm">Guild Session Deductions</span>
+                 <p class="text-xs text-secondary m-b-16">This month's share of escrow funds claimed via space provision.</p>
+                 
+                 <div class="flex-between m-b-8">
+                     <span class="text-lg font-inktrap">₹18,400</span>
+                 </div>
+                 <div class="prog-bar-wrap m-b-8" style="height:12px;">
+                    <div class="prog-fill" style="width:75%; background:var(--accent-pink);"></div>
+                 </div>
+                 <span class="text-xs text-secondary font-bold">75% compared to Last Month</span>
+             </div>
+          </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav-black">
+      <div class="os-pill"></div>
+      <button class="nav-btn-aww active" data-target="screen-owner-space">
+        <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div>
+        <span class="nav-lbl">Space</span>
+      </button>
+      <button class="nav-btn-aww" data-target="screen-owner-telemetry">
+        <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div>
+        <span class="nav-lbl">Ledger</span>
+      </button>
+      <button class="nav-btn-aww" data-target="screen-owner-retail">
+        <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></div>
+        <span class="nav-lbl">Retail</span>
+      </button>
+      <button class="nav-btn-aww" onclick="window.location.href='./index.html'">
+        <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+        <span class="nav-lbl">Passport</span>
+      </button>
+    </nav>
+  </div>
+  
+  <script type="module" src="./src/owner.js"></script>
+</body>
+</html>
