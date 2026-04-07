@@ -27,11 +27,12 @@
       <!-- SCREEN: FEED -->
       <section id="screen-feed" class="screen active">
         <div class="header-aww text-black" style="padding-bottom:12px;">
-          <div class="location-pill">
+          <button class="location-pill" id="location-trigger" type="button" aria-expanded="false">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            Indiranagar, BLR
+            <span id="current-location-label">Indiranagar, BLR</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
+          </button>
+          <div id="location-dropdown" class="location-dropdown hidden" aria-hidden="true"></div>
           <h1 class="font-inktrap hero-title m-t-8" style="font-size:34px;">DISCOVER<br>THE GUILD.</h1>
         </div>
         
@@ -44,12 +45,12 @@
 
         <div class="stats-aww m-x-20 m-t-24">
           <div class="stat-neo">
-            <span class="font-inktrap">124</span>
-            <span class="stat-lbl">Live in Indiranagar</span>
+            <span class="font-inktrap" id="feed-live-count">124</span>
+            <span class="stat-lbl" id="feed-live-label">Live in Indiranagar</span>
           </div>
           <div class="stat-neo outline">
-            <span class="font-inktrap">15</span>
-            <span class="stat-lbl">Scrap Bins Active</span>
+            <span class="font-inktrap" id="feed-scrap-count">15</span>
+            <span class="stat-lbl" id="feed-scrap-label">Scrap Bins Active</span>
           </div>
         </div>
 
@@ -84,7 +85,7 @@
               <div class="divider-aww"></div>
               <div class="flex-between m-t-16 align-bottom">
                 <div class="price-aww">₹1,500 <span class="sub-lbl">Inc. Scrap Bundle</span></div>
-                <button class="btn-black-small">Book</button>
+                <button class="btn-black-small" data-action="book-class">Book</button>
               </div>
             </div>
           </div>
@@ -104,7 +105,7 @@
               <div class="divider-aww"></div>
               <div class="flex-between m-t-16 align-bottom">
                 <div class="price-aww">₹800 <span class="sub-lbl">Safety Gear Inc.</span></div>
-                <button class="btn-black-small outline">Join</button>
+                <button class="btn-black-small outline" data-action="join-class">Join</button>
               </div>
             </div>
           </div>
@@ -123,7 +124,7 @@
               <div class="divider-aww"></div>
               <div class="flex-between m-t-16 align-bottom">
                 <div class="price-aww">₹2,000 <span class="sub-lbl">Clay Included</span></div>
-                <button class="btn-black-small outline">Join</button>
+                <button class="btn-black-small outline" data-action="join-class">Join</button>
               </div>
             </div>
           </div>
@@ -142,7 +143,7 @@
               <div class="divider-aww"></div>
               <div class="flex-between m-t-16 align-bottom">
                 <div class="price-aww">₹1,200 <span class="sub-lbl">Bring own piece</span></div>
-                <button class="btn-black-small outline">Join</button>
+                <button class="btn-black-small outline" data-action="join-class">Join</button>
               </div>
             </div>
           </div>
@@ -162,7 +163,7 @@
               <div class="divider-aww"></div>
               <div class="flex-between m-t-16 align-bottom">
                 <div class="price-aww">₹3,000 <span class="sub-lbl">For enthusiasts</span></div>
-                <button class="btn-black-small outline">Join</button>
+                <button class="btn-black-small outline" data-action="join-class">Join</button>
               </div>
             </div>
           </div>
@@ -246,11 +247,11 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="#000"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
             MASTER APPRENTICE
           </div>
-          <p class="text-sm text-secondary m-t-8">Top 5% in Indiranagar</p>
+          <p class="text-sm text-secondary m-t-8" id="profile-rank-subtitle">Top 5% in Indiranagar</p>
         </div>
 
         <div class="hours-card m-x-20 m-t-24">
-          <span class="font-inktrap text-lg" style="font-size: 32px;">48.0</span>
+          <span class="font-inktrap text-lg" id="hours-clocked" style="font-size: 32px;">48.0</span>
           <span class="lbl-sm" style="flex:1;">HOURS CLOCKED</span>
         </div>
 
@@ -262,7 +263,7 @@
               <span class="pill-sm blue-bg text-blue">Expert</span>
             </div>
             <span class="text-xs text-secondary">Vouched by 5 Mentors</span>
-            <div class="prog-bar-wrap m-t-8"><div class="prog-fill" style="width:100%"></div></div>
+            <div class="prog-bar-wrap m-t-8"><div class="prog-fill" data-target-width="100" style="width:100%"></div></div>
           </div>
           <div class="skill-blk m-t-16">
             <div class="flex-between m-b-8">
@@ -270,7 +271,7 @@
               <span class="pill-sm yellow-bg text-yellow">Intermediate</span>
             </div>
             <span class="text-xs text-secondary">4/5 Safety Sessions</span>
-            <div class="prog-bar-wrap m-t-8"><div class="prog-fill" style="width:80%"></div></div>
+            <div class="prog-bar-wrap m-t-8"><div class="prog-fill" data-target-width="80" style="width:80%"></div></div>
           </div>
         </div>
 
@@ -307,7 +308,7 @@
       <section id="screen-market" class="screen">
         <div class="header-aww text-black">
           <h1 class="font-inktrap hero-title">LOCAL<br>MARKET.</h1>
-          <p class="text-sm text-secondary m-t-8">Crafted locally. Sold by neighbors.</p>
+          <p class="text-sm text-secondary m-t-8" id="market-subtitle">Crafted locally. Sold by neighbors.</p>
         </div>
 
         <div class="m-x-20 m-t-16">
@@ -338,7 +339,7 @@
                  <div class="text-xs font-medium text-secondary">Ready for pick-up at <br><strong style="color:#000;">Gagan’s (Shelf A)</strong></div>
               </div>
 
-              <button class="btn-black-huge m-t-16">Reserve Item</button>
+              <button class="btn-black-huge m-t-16" data-action="reserve-item">Reserve Item</button>
             </div>
           </div>
 
@@ -363,7 +364,7 @@
                  <div class="text-xs font-medium text-secondary">Ready for pick-up at <br><strong style="color:#000;">Priya's Studio</strong></div>
               </div>
 
-              <button class="btn-black-huge m-t-16 outline">Reserve Item</button>
+              <button class="btn-black-huge m-t-16 outline" data-action="reserve-item">Reserve Item</button>
             </div>
           </div>
           
@@ -384,7 +385,7 @@
                 <span class="text-xs text-secondary" style="line-height:1.4;">Custom sizes available. Ordered 5 times.</span>
               </div>
               
-              <button class="btn-black-huge m-t-16 outline">Commission Similar</button>
+              <button class="btn-black-huge m-t-16 outline" data-action="commission-item">Commission Similar</button>
             </div>
           </div>
         </div>
@@ -403,12 +404,12 @@
 
         <div class="m-x-20 m-t-8">
           <div class="map-card-minimal" style="background:#EAEAEA; height:180px; border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center;">
-             <div class="map-badge-aww" style="background:#000; color:#FFF; padding:12px 24px; border-radius:100px; display:flex; align-items:center; gap:8px; font-weight:bold; font-size:14px;"><span class="dot-blue"></span> 12 Tools near you</div>
+             <div class="map-badge-aww" id="tools-nearby-badge" style="background:#000; color:#FFF; padding:12px 24px; border-radius:100px; display:flex; align-items:center; gap:8px; font-weight:bold; font-size:14px;"><span class="dot-blue"></span> <span id="tools-nearby-count">12</span> Tools near you</div>
           </div>
         </div>
 
         <div class="m-x-20 m-t-24 m-b-24">
-          <div class="tool-list flex-col" style="gap: 16px;">
+          <div id="tool-list" class="tool-list flex-col" style="gap: 16px;">
             
             <!-- Tool 1 -->
             <div class="tool-card-soft">
@@ -426,7 +427,7 @@
                 </div>
               </div>
               <div class="security-banner-light m-t-12">Insurance included. Level 1 Verified Users.</div>
-              <button class="btn-black-small full-w m-t-12">Request Tool</button>
+              <button class="btn-black-small full-w m-t-12" data-action="request-tool">Request Tool</button>
             </div>
 
             <!-- Tool 2 -->
@@ -445,7 +446,7 @@
                 </div>
               </div>
               <div class="security-banner-light m-t-12">Pick-up only via Mini-truck.</div>
-              <button class="btn-black-small full-w m-t-12">Request Tool</button>
+              <button class="btn-black-small full-w m-t-12" data-action="request-tool">Request Tool</button>
             </div>
 
             <!-- Tool 3 -->
@@ -463,7 +464,7 @@
                   </div>
                 </div>
               </div>
-              <button class="btn-black-small full-w m-t-12">Request Tool</button>
+              <button class="btn-black-small full-w m-t-12" data-action="request-tool">Request Tool</button>
             </div>
 
             <!-- Tool 4 -->
@@ -481,7 +482,7 @@
                   </div>
                 </div>
               </div>
-              <button class="btn-black-small full-w m-t-12">Request Tool</button>
+              <button class="btn-black-small full-w m-t-12" data-action="request-tool">Request Tool</button>
             </div>
 
             <!-- Tool 5 -->
@@ -499,7 +500,7 @@
                   </div>
                 </div>
               </div>
-              <button class="btn-black-small full-w m-t-12">Request Tool</button>
+              <button class="btn-black-small full-w m-t-12" data-action="request-tool">Request Tool</button>
             </div>
 
           </div>
@@ -535,18 +536,18 @@
           <h3 class="font-inktrap text-sm text-secondary m-b-16">PROTOCOL CHECKLIST</h3>
           
           <div class="check-list-aww">
-            <label class="check-row-aww">
+            <label class="check-row-aww" data-check-item="1">
               <div class="check-box checked"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
               <div class="check-text">Wear SKILLDD Safety Apron and Eye Protection.</div>
             </label>
-            <label class="check-row-aww disabled">
+            <label class="check-row-aww disabled" data-check-item="2">
               <div class="check-box"></div>
               <div class="check-text">
                 Complete Visual Tool Inspection.
                 <div class="badge-mini pink m-t-4">MENTOR REQ.</div>
               </div>
             </label>
-            <label class="check-row-aww">
+            <label class="check-row-aww" data-check-item="3">
                <div class="check-box checked"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
                <div class="check-text">
                  Confirm Scrap Material Selection.
@@ -562,7 +563,7 @@
              <span class="font-inktrap font-bold text-sm" style="display:block;">MENTOR SNEHA</span>
              <span class="text-xs text-secondary">Tap for tactile assistance.</span>
            </div>
-           <button class="call-icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></button>
+           <button class="call-icon-btn" data-action="call-mentor"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.79 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></button>
         </div>
         <div class="bottom-spacer"></div>
       </section>
