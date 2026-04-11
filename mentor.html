@@ -4,175 +4,252 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>SKILLDD Premium - Mentor Dashboard</title>
+  <title>SKILLDD Premium - Mentor</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/style.css">
   <style>
-    :root {
-      --accent-purple: #8B5CF6;
-      --accent-dark: #121212;
-    }
-    .bottom-nav-black { background: var(--accent-dark); }
-    .bottom-nav-black .nav-btn-aww.active { color: var(--accent-purple); }
-    .bottom-nav-black .nav-btn-aww.active .icon-wrap { background: rgba(139, 92, 246, 0.2); color: var(--accent-purple); }
-    
     @keyframes scan {
       0% { top: 0; }
       50% { top: 100%; }
       100% { top: 0; }
     }
-    .hero-title-purple {
-      background: linear-gradient(135deg, var(--accent-purple), #D946EF);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .chart-bar {
-      transition: height 1s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .p-16 { padding: 16px; }
-    .p-20 { padding: 20px; }
   </style>
 </head>
-<body class="bg-gray-100">
-  <div class="app-container">
-    <div class="dynamic-island-sim">
-      <div class="cam-lens"></div>
-    </div>
-    
-    <div class="status-bar-sim">
-      <span class="time-aww" id="sys-time">9:41</span>
-      <div class="status-icons">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+<body>
+  <div id="app" class="app-container">
+    <div class="status-bar text-white">
+      <span class="time" id="sys-time">9:41</span>
+      <div class="dynamic-island"></div>
+      <div class="status-icons flex-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20V10M18 20V4M6 20v-4"></path>
+        </svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01">
+          </path>
+        </svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="1" y="6" width="18" height="12" rx="2" ry="2"></rect>
+          <line x1="23" y1="13" x2="23" y2="11"></line>
+        </svg>
       </div>
     </div>
 
-    <main id="app" class="flex-col" style="height:100%; overflow-y:auto; overflow-x:hidden; position:relative; scroll-behavior: smooth;">
+    <div class="white-card">
+      <main id="main-content">
       
-      <!-- SCREEN: DASHBOARD -->
-      <section id="screen-mentor-dash" class="screen active" style="padding-top: 32px;">
-        <div class="m-x-20 flex-between">
-           <h1 class="font-inktrap hero-title hero-title-purple" style="font-size:32px;">CREATOR<br>DASHBOARD.</h1>
-           <div><img src="https://i.pravatar.cc/100?img=11" style="width:40px; height:40px; border-radius: 20px;"></div>
-        </div>
-
-        <div class="m-x-20 m-t-24">
-           <h3 class="font-inktrap text-md m-b-16 text-secondary">ESCROW EARNINGS</h3>
-           <div class="escrow-chart">
-               <div class="flex-between align-end" style="height: 140px; padding: 16px; background:#FFF; border: 1px solid #EAEAEA; border-radius:16px;">
-                  <div class="chart-bar flex-col" style="height: 40%; width: 18%; background: #F4F4F4; border-radius: 6px;"></div>
-                  <div class="chart-bar flex-col" style="height: 60%; width: 18%; background: #F4F4F4; border-radius: 6px;"></div>
-                  <div class="chart-bar flex-col" style="height: 30%; width: 18%; background: #F4F4F4; border-radius: 6px;"></div>
-                  <div class="chart-bar flex-col" style="height: 90%; width: 18%; background: var(--accent-purple); border-radius: 6px; box-shadow: 0 4px 12px rgba(139,92,246,0.3); align-items:center;">
-                     <span style="font-size:9px; font-weight:800; color:#FFF; margin-top:8px;">TODAY</span>
-                  </div>
-               </div>
-           </div>
-           <div class="flex-between m-t-16 align-end">
-               <div>
-                 <span class="font-inktrap text-lg" style="font-size:32px; display:block;">₹14,500</span>
-                 <span class="text-xs text-secondary font-bold tracking-widest uppercase">Total Cleared</span>
-               </div>
-               <span class="pill-sm" style="background:#FFEAEA; color:#cc0000;">₹4,200 Locked</span>
-           </div>
-        </div>
-
-        <div class="m-x-20 m-t-32">
-           <div class="flex-between m-b-16">
-              <h3 class="font-inktrap text-md text-secondary">LIVE ROSTER</h3>
-              <span class="text-xs font-bold" style="color:var(--accent-purple);">3 Sessions</span>
-           </div>
-           <div class="flex-col" style="gap:12px;">
-              <div class="p-16 flex-row" style="background:#FFF; border:1px solid #EAEAEA; border-radius:16px; box-shadow:0 2px 8px rgba(0,0,0,0.02);">
-                 <img src="https://i.pravatar.cc/100?img=5" style="width:40px; height:40px; border-radius:20px;">
-                 <div class="m-l-12" style="flex:1;">
-                    <span class="font-bold text-sm">Riya Sharma</span><br>
-                    <span class="text-xs font-medium text-secondary">Dovetail Joinery • 10:00 AM</span>
-                 </div>
-                 <button class="btn-black-small" style="padding:8px 12px; background:var(--accent-purple);">View</button>
-              </div>
-           </div>
-        </div>
-
-        <div class="m-x-20 m-t-32 m-b-32">
-            <h3 class="font-inktrap text-md m-b-16 text-secondary">SCHEDULE ENGINE</h3>
-            <div class="p-16" style="background:#FFF; border:1px solid #EAEAEA; border-radius:16px;">
-                <p class="text-sm font-bold m-b-16">Request Zone 3 Action Block</p>
-                <div class="search-input-sleek m-b-12 flex-row" style="background:#F9F9F9;">
-                   <svg width="16" height="16" fill="none" stroke="#888" stroke-width="2" class="m-r-8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                   <span class="text-sm font-medium">Tomorrow, 14:00 - 16:00</span>
-                </div>
-                <button class="btn-blue-huge full-w" style="background:var(--accent-dark); padding:14px; font-size:13px;">Request Capacity</button>
-            </div>
-        </div>
-      </section>
-
-      <!-- SCREEN: SCANNER -->
-      <section id="screen-mentor-scan" class="screen" style="padding-top: 32px; height: 100%; display:none; flex-direction:column;">
-         <div class="m-x-20 flex-between">
-           <h1 class="font-inktrap hero-title" style="font-size:32px;">LIVE<br>VALIDATOR.</h1>
-         </div>
-         <div class="m-x-20 m-t-20 flex-col" style="flex:1;">
-            <div style="flex:1; background:#000; border-radius:24px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; box-shadow: 0 16px 32px rgba(139,92,246,0.2);">
-                <div style="position:absolute; inset:0; opacity:0.2; background: url('https://loremflickr.com/600/800/workshop,blur/all') center/cover;"></div>
-                <div style="width:65%; height:45%; border: 2px solid rgba(255,255,255,0.6); border-radius:32px; position:relative;">
-                   <div class="scanline" style="width:100%; height:2px; background:var(--accent-purple); position:absolute; top:0; box-shadow:0 0 8px var(--accent-purple); animation: scan 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;"></div>
-                   <div style="position:absolute; left:-1px; top:20%; bottom:20%; width:2px; background:#000;"></div>
-                   <div style="position:absolute; right:-1px; top:20%; bottom:20%; width:2px; background:#000;"></div>
-                   <div style="position:absolute; top:-1px; left:20%; right:20%; height:2px; background:#000;"></div>
-                   <div style="position:absolute; bottom:-1px; left:20%; right:20%; height:2px; background:#000;"></div>
-                   
-                   <span class="font-inktrap text-xs font-bold text-white" style="position:absolute; bottom:-40px; left:50%; transform:translateX(-50%); white-space:nowrap; background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:12px;">Scan Learner ID</span>
-                </div>
-            </div>
-            
-            <div class="m-t-24 m-b-24">
-                <button class="btn-blue-huge m-b-16" style="background:#111; padding:16px; font-size:14px;" id="trigger-scan-btn">Mock Secure Handshake</button>
-                <div class="flex-between m-t-8 p-16" style="background:#FFF; border:2px solid #FFEAEA; border-radius:16px;">
-                   <div>
-                       <span class="font-bold text-sm" style="color:#cc0000; display:block; margin-bottom:4px;">Safety Override</span>
-                       <span class="text-xs text-secondary">Instantly freeze current session</span>
-                   </div>
-                   <button class="btn-black-small" style="background:#cc0000; color:#FFF; padding:10px 18px;" id="freeze-btn">FREEZE</button>
-                </div>
-            </div>
-         </div>
-      </section>
-
-      <!-- SCREEN: PROMO -->
-      <section id="screen-mentor-promo" class="screen" style="padding-top: 32px; display:none;">
-          <div class="m-x-20 m-b-24">
-             <h1 class="font-inktrap hero-title" style="font-size:32px;">FEED<br>INJECTOR.</h1>
+        <!-- SCREEN: DASHBOARD -->
+        <section id="screen-mentor-dash" class="screen active" style="padding-top: 32px;">
+          <div class="header-aww text-black m-x-20 m-b-24">
+             <h1 class="font-inktrap hero-title">CREATOR<br>DASHBOARD.</h1>
           </div>
-          <div class="m-x-20">
-             <div class="p-20 m-b-24" style="background:#FFF; border:1px solid #EAEAEA; border-radius:16px; box-shadow:0 4px 12px rgba(0,0,0,0.02);">
-                 <label class="font-bold text-sm m-b-12" style="display:block;">Dynamic Pricing Engine</label>
-                 <div class="flex-between m-b-16">
-                     <span class="text-xs text-secondary font-medium"><span style="color:#10B981;">●</span> High Demand</span>
-                     <span class="font-inktrap font-bold text-lg" style="color:var(--accent-purple);" id="price-val">₹2,500</span>
-                 </div>
-                 <input type="range" id="price-slider" class="full-w m-b-12" min="1500" max="3500" value="2500" style="accent-color:var(--accent-purple);">
-                 <p class="text-xs text-secondary m-b-24">Adjust to optimize fill-rate. 80% capacity remaining.</p>
-                 
-                 <div class="divider-aww m-b-24"></div>
 
-                 <label class="font-bold text-sm m-b-12" style="display:block;">Location Matrix Targeting</label>
-                 <select class="search-input-sleek m-b-16" style="background:#F9F9F9; border:1px solid #EAEAEA;">
-                    <option>Indiranagar (12 Credits)</option>
-                    <option>HSR Layout (8 Credits)</option>
-                    <option>Whitefield (16 Credits)</option>
-                 </select>
-                 <div class="flex-between m-b-20">
-                     <span class="text-xs font-bold text-secondary">Available Credits: 240</span>
-                 </div>
-
-                 <button class="btn-blue-huge full-w" style="background:var(--accent-purple); padding:16px; font-size:14px;">Inject Workshop</button>
+          <div class="m-x-20 m-t-24">
+             <div class="flex-between m-b-16">
+                <h3 class="font-inktrap text-md text-secondary">LIVE ROSTER</h3>
+                <span class="pill-sm bg-panel-green">3 Sessions</span>
+             </div>
+             
+             <div id="roster-list" class="flex-col" style="gap:12px;">
+                <div class="p-16 flex-row" style="background:#FFF; border:1px solid var(--divider); border-radius:16px; box-shadow:0 2px 8px rgba(0,0,0,0.02);">
+                   <img src="https://i.pravatar.cc/100?img=5" style="width:40px; height:40px; border-radius:20px;">
+                   <div class="m-l-12" style="flex:1;">
+                      <span class="font-bold text-sm">Riya Sharma</span><br>
+                      <span class="text-xs font-medium text-secondary">Dovetail Joinery • 10:00 AM</span>
+                   </div>
+                   <button class="btn-black-small" onclick="this.parentElement.remove()" style="padding:8px 12px; background:#000;">Check-In</button>
+                </div>
+                <div class="p-16 flex-row" style="background:#FFF; border:1px solid var(--divider); border-radius:16px; box-shadow:0 2px 8px rgba(0,0,0,0.02);">
+                   <img src="https://i.pravatar.cc/100?img=8" style="width:40px; height:40px; border-radius:20px;">
+                   <div class="m-l-12" style="flex:1;">
+                      <span class="font-bold text-sm">Vikas Jain</span><br>
+                      <span class="text-xs font-medium text-secondary">Dovetail Joinery • 11:30 AM</span>
+                   </div>
+                   <button class="btn-black-small" onclick="this.parentElement.remove()" style="padding:8px 12px; background:#000;">Check-In</button>
+                </div>
              </div>
           </div>
-      </section>
-    </main>
+
+          <div class="m-x-20 m-t-32 m-b-32">
+              <h3 class="font-inktrap text-md m-b-16 text-secondary">SCHEDULE ENGINE</h3>
+              <div class="p-16" style="background:#FFF; border:1px solid var(--divider); border-radius:16px; box-shadow:0 2px 8px rgba(0,0,0,0.02);">
+                  <p class="text-sm font-bold m-b-16">Request Zone 3 Action Block</p>
+                  <div class="search-input-sleek m-b-12 flex-row" style="background:#F9F9F9; color:#000;">
+                     <svg width="16" height="16" fill="none" stroke="#888" stroke-width="2" class="m-r-8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                     <span class="text-sm font-medium">Tomorrow, 14:00 - 16:00</span>
+                  </div>
+                  <button class="btn-blue-huge full-w" onclick="this.textContent = 'Request Sent ✓'; this.style.background = '#10B981';" style="padding:14px; font-size:13px; background:#000;">Request Capacity</button>
+              </div>
+          </div>
+          <div class="bottom-spacer"></div>
+        </section>
+
+        <!-- SCREEN: SCANNER -->
+        <section id="screen-mentor-scan" class="screen" style="padding-top: 32px; height: 100%; display:none; flex-direction:column;">
+           <div class="m-x-20 flex-between">
+             <h1 class="font-inktrap hero-title" style="font-size:32px;">LIVE<br>VALIDATOR.</h1>
+           </div>
+           <div class="m-x-20 m-t-20 flex-col" style="flex:1;">
+              <div style="flex:1; background:#000; border-radius:24px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; box-shadow: 0 16px 32px rgba(0,0,0,0.2);">
+                  <div style="position:absolute; inset:0; opacity:0.2; background: url('https://loremflickr.com/600/800/workshop,blur/all') center/cover;"></div>
+                  <div style="width:65%; height:45%; border: 2px solid rgba(255,255,255,0.6); border-radius:32px; position:relative;">
+                     <div class="scanline" style="width:100%; height:2px; background:var(--accent-yellow); position:absolute; top:0; box-shadow:0 0 8px var(--accent-yellow); animation: scan 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;"></div>
+                     <div style="position:absolute; left:-1px; top:20%; bottom:20%; width:2px; background:#000;"></div>
+                     <div style="position:absolute; right:-1px; top:20%; bottom:20%; width:2px; background:#000;"></div>
+                     <div style="position:absolute; top:-1px; left:20%; right:20%; height:2px; background:#000;"></div>
+                     <div style="position:absolute; bottom:-1px; left:20%; right:20%; height:2px; background:#000;"></div>
+                     
+                     <span class="font-inktrap text-xs font-bold text-white" style="position:absolute; bottom:-40px; left:50%; transform:translateX(-50%); white-space:nowrap; background:rgba(0,0,0,0.5); padding:6px 12px; border-radius:12px;">Scan Learner ID</span>
+                  </div>
+              </div>
+              
+              <div class="m-t-24 m-b-24">
+                  <button class="btn-blue-huge m-b-16" style="background:#111; padding:16px; font-size:14px;" id="trigger-scan-btn">Mock Secure Handshake</button>
+                  <div class="flex-between m-t-8 p-16" style="background:#FFF; border:2px solid #FFEAEA; border-radius:16px;">
+                     <div>
+                         <span class="font-bold text-sm" style="color:#cc0000; display:block; margin-bottom:4px;">Safety Override</span>
+                         <span class="text-xs text-secondary">Freeze current session instantly</span>
+                     </div>
+                     <button class="btn-black-small" style="background:#cc0000; color:#FFF; padding:10px 18px;" id="freeze-btn">FREEZE</button>
+                  </div>
+              </div>
+           </div>
+        </section>
+
+        <!-- SCREEN: PROMO (FEED INJECTOR) -->
+        <section id="screen-mentor-promo" class="screen" style="padding-top: 32px; display:none;">
+            <div class="m-x-20 m-b-24">
+               <h1 class="font-inktrap hero-title" style="font-size:32px;">FEED<br>INJECTOR.</h1>
+            </div>
+            <div class="m-x-20 m-b-24">
+               <div class="p-20" style="background:#FFF; border:1px solid var(--divider); border-radius:16px; box-shadow:0 2px 8px rgba(0,0,0,0.02);">
+                   <label class="font-bold text-sm m-b-12" style="display:block;">Dynamic Pricing Engine</label>
+                   <div class="flex-between m-b-16">
+                       <span class="text-xs text-secondary font-medium"><span style="color:#10B981;">●</span> High Demand</span>
+                       <span class="font-inktrap font-bold text-lg text-blue" id="price-val">₹2,500</span>
+                   </div>
+                   <input type="range" id="price-slider" class="full-w m-b-12" min="1500" max="3500" value="2500" style="accent-color:var(--accent-blue);">
+                   <p class="text-xs text-secondary m-b-24">Adjust to optimize fill-rate. 80% capacity remaining.</p>
+                   
+                   <div class="divider-aww m-b-24"></div>
+
+                   <label class="font-bold text-sm m-b-12" style="display:block;">Location Matrix Targeting</label>
+                   <select class="search-input-sleek m-b-16" style="background:#F9F9F9; border:1px solid var(--divider); color:#000;">
+                      <option>Indiranagar (12 Credits)</option>
+                      <option>HSR Layout (8 Credits)</option>
+                      <option>Whitefield (16 Credits)</option>
+                   </select>
+                   <div class="flex-between m-b-20">
+                       <span class="text-xs font-bold text-secondary">Available Credits: 240</span>
+                   </div>
+
+                   <button class="btn-blue-huge full-w" onclick="this.textContent = 'Injected Successfully ✓'; this.style.background = '#10B981';" style="background:#000; padding:16px; font-size:14px;">Inject Workshop</button>
+               </div>
+            </div>
+            <div class="bottom-spacer"></div>
+        </section>
+
+        <!-- SCREEN: PASSPORT -->
+        <section id="screen-passport" class="screen" style="display:none; padding-top: 32px;">
+             <div class="header-aww text-black">
+               <h1 class="font-inktrap hero-title">YOUR<br>PASSPORT.</h1>
+             </div>
+   
+             <div class="passport-hero text-center m-x-20 m-t-12">
+               <div class="avatar-ring-aww">
+                 <div class="ring-track"></div>
+                 <div class="ring-progress"></div>
+                 <img src="https://i.pravatar.cc/150?img=5" alt="User">
+               </div>
+               <h2 class="font-inktrap title-aww m-t-16">RIYA SHARMA</h2>
+               <div class="rank-badge m-t-8 yellow-bg text-black font-inktrap font-bold text-sm">
+                 <svg width="14" height="14" viewBox="0 0 24 24" fill="#000">
+                   <polygon
+                     points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                   </polygon>
+                 </svg>
+                 MASTER APPRENTICE
+               </div>
+               <p class="text-sm text-secondary m-t-8" id="profile-rank-subtitle">Top 5% in Indiranagar</p>
+             </div>
+   
+             <div class="hours-card m-x-20 m-t-24">
+               <span class="font-inktrap text-lg" id="hours-clocked" style="font-size: 32px;">48.0</span>
+               <span class="lbl-sm" style="flex:1;">HOURS CLOCKED</span>
+             </div>
+   
+             <div class="m-x-20 m-t-32">
+               <div class="persona-switcher m-b-24">
+                 <div class="sw-btn" onclick="window.location.href='./index.html'">LEARNER</div>
+                 <div class="sw-btn active">MENTOR</div>
+                 <div class="sw-btn" onclick="window.location.href='./owner.html'">OWNER</div>
+               </div>
+               
+               <h3 class="font-inktrap text-md m-b-16 text-secondary">VERIFIED SKILLS</h3>
+               <div class="skill-blk">
+                 <div class="flex-between m-b-8">
+                   <span class="font-bold text-sm">Hand Tools</span>
+                   <span class="pill-sm blue-bg text-blue">Expert</span>
+                 </div>
+                 <span class="text-xs text-secondary">Vouched by 5 Mentors</span>
+                 <div class="prog-bar-wrap m-t-8">
+                   <div class="prog-fill" data-target-width="100" style="width:100%"></div>
+                 </div>
+               </div>
+               <div class="skill-blk m-t-16">
+                 <div class="flex-between m-b-8">
+                   <span class="font-bold text-sm">Power Tools</span>
+                   <span class="pill-sm yellow-bg text-yellow">Intermediate</span>
+                 </div>
+                 <span class="text-xs text-secondary">4/5 Safety Sessions</span>
+                 <div class="prog-bar-wrap m-t-8">
+                   <div class="prog-fill" data-target-width="80" style="width:80%"></div>
+                 </div>
+               </div>
+             </div>
+   
+             <div class="m-x-20 m-t-32 m-b-24">
+               <h3 class="font-inktrap text-md m-b-16 text-secondary">HONOR BADGES</h3>
+               <div class="sleek-badges">
+                 <div class="badge-row-sleek">
+                   <div class="badge-icon-sq"><svg width="20" height="20" fill="none" stroke="#00AAFF" stroke-width="2">
+                       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                     </svg></div>
+                   <div style="flex:1;">
+                     <span class="text-sm font-bold m-b-4" style="display:block;">Safety Pro</span>
+                     <span class="text-xs text-secondary">Verified by 2 mentors</span>
+                   </div>
+                 </div>
+                 <div class="badge-row-sleek">
+                   <div class="badge-icon-sq"><svg width="20" height="20" fill="none" stroke="#FF4DA6" stroke-width="2">
+                       <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                     </svg></div>
+                   <div style="flex:1;">
+                     <span class="text-sm font-bold m-b-4" style="display:block;">Craft Hero</span>
+                     <span class="text-xs text-secondary">Upcycled >50kg</span>
+                   </div>
+                 </div>
+                 <div class="badge-row-sleek">
+                   <div class="badge-icon-sq"><svg width="20" height="20" fill="none" stroke="#4A5500" stroke-width="2">
+                       <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                       <circle cx="9" cy="7" r="4"></circle>
+                       <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                       <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                     </svg></div>
+                   <div style="flex:1;">
+                     <span class="text-sm font-bold m-b-4" style="display:block;">Legacy Bridge</span>
+                     <span class="text-xs text-secondary">Top community contributor</span>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="bottom-spacer"></div>
+        </section>
+
+      </main>
+    </div>
 
     <!-- Bottom Navigation -->
     <nav class="bottom-nav-black">
@@ -189,9 +266,9 @@
         <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div>
         <span class="nav-lbl">Injector</span>
       </button>
-      <button class="nav-btn-aww" onclick="window.location.href='./index.html'">
+      <button class="nav-btn-aww" data-target="screen-passport">
         <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
-        <span class="nav-lbl">Passport</span>
+        <span class="nav-lbl">Profile</span>
       </button>
     </nav>
   </div>

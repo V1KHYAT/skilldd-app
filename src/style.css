@@ -1638,3 +1638,12 @@ body {
   color: var(--accent-blue);
   border: 2px solid var(--accent-blue);
 }
+
+/* Hide scrollbar globally */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
